@@ -1,0 +1,508 @@
+<!-- saved from url=(0055)http://love.zxgnz.com/html/20190823/15665711538720.html -->
+<html data-minimalscrollbar="yes">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <link href="/static/css/style.css" rel="stylesheet" />
+    <style>
+        html, body {
+            height: 100%;
+        }
+        body {
+            background-image: url('https://pic.imgdb.cn/item/662923180ea9cb1403ad2f30.png');
+            background-size: cover; /* 让背景图覆盖整个容器 */
+            margin: 0;
+            font-family: Helvetica, sans-serif;
+            overflow: hidden;
+        }
+        #menu {
+            position: absolute;
+            bottom: 20px;
+            width: 100%;
+            text-align: center;
+        }
+        .element {
+            width: 150px; /* 调整图片宽度 */
+            height: 150px; /* 调整图片高度 */
+            margin: 5px; /* 调整图片之间的间隙 */
+            box-shadow: 0px 0px 12px rgba(214, 144, 14, 0.5);
+            border: 1px solid rgba(233, 170, 23, 0.25);
+            text-align: center;
+            cursor: default;
+        }
+        .element:hover {
+            box-shadow: 0px 0px 12px rgba(211, 106, 20, 0.75);
+            border: 1px solid rgba(229, 121, 13, 0.75);
+        }
+
+        .element img {
+            width: 150px;
+            height: 150px;
+        }
+
+        .element .number {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 12px;
+            color: rgba(243, 123, 11, 0.75);
+        }
+
+        .element .symbol {
+            position: absolute;
+            top: 40px;
+            left: 0px;
+            right: 0px;
+            font-size: 60px;
+            font-weight: bold;
+            color: rgba(255, 255, 255, 0.75);
+            text-shadow: 0 0 10px rgba(242, 143, 5, 0.95);
+        }
+
+        .element .details {
+            position: absolute;
+            bottom: 15px;
+            left: 0px;
+            right: 0px;
+            font-size: 12px;
+            color: rgba(231, 163, 16, 0.75);
+        }
+        .btn {
+              border: 1px solid;
+              background-color: transparent;
+              text-transform: uppercase;
+              font-size: 20px;
+              padding: 10px 20px;
+              font-weight: 300;
+            width: 80px;
+        }
+        .custom-line {
+            width: 100%;
+            height: 5px;
+            background-color: #a16223;
+            position: absolute;
+            top: 105px;
+            left: 0;
+            z-index: 3;
+            transition: top 0.3s; /* 添加过渡效果 */
+        }
+        .new-image {
+        position: absolute;
+        left: 0;
+        width: 2050px;
+        height: auto;
+        max-width: 100%;
+        max-height: 100%;
+        z-index: 2; /* 将图片置于地图下方 */
+    }
+    .text-container {
+        position: absolute;
+        z-index: 3; /* 确保文本在图片上方显示 */
+        left: 1000px;
+    }
+    .one {
+      color: #4cc9f0;
+    }
+
+    .two {
+      color: #f038ff;
+    }
+
+    .three {
+      color: #b9e769;
+    }
+
+    .four{
+        color: #F95E1A;
+    }
+
+    .btn:hover {
+      color: white;
+      border: 0;
+    }
+
+    .one:hover {
+      background-color: #4cc9f0;
+      -webkit-box-shadow: 10px 10px 99px 6px rgba(76, 201, 240, 1);
+      -moz-box-shadow: 10px 10px 99px 6px rgba(76, 201, 240, 1);
+      box-shadow: 10px 10px 99px 6px rgba(76, 201, 240, 1);
+      transition: all ease-in 0.5s;
+    }
+
+    .two:hover {
+      background-color: #f038ff;
+      -webkit-box-shadow: 10px 10px 99px 6px rgba(240, 56, 255, 1);
+      -moz-box-shadow: 10px 10px 99px 6px rgba(240, 56, 255, 1);
+      box-shadow: 10px 10px 99px 6px rgba(240, 56, 255, 1);
+      transition: all ease-in 0.5s;
+    }
+
+    .three:hover {
+      background-color: #b9e769;
+      -webkit-box-shadow: 10px 10px 99px 6px rgba(185, 231, 105, 1);
+      -moz-box-shadow: 10px 10px 99px 6px rgba(185, 231, 105, 1);
+      box-shadow: 10px 10px 99px 6px rgba(185, 231, 105, 1);
+      transition: all ease-in 0.5s;
+    }
+    .four:hover{
+        background-color: #F95E1A;
+      -webkit-box-shadow: 10px 10px 99px 6px rgba(249, 94, 26, 1);
+      -moz-box-shadow: 10px 10px 99px 6px rgba(249, 94, 26, 1);
+      box-shadow: 10px 10px 99px 6px rgba(249, 94, 26, 1);
+      transition: all ease-in 0.5s;
+    }
+    </style>
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/three.js"></script>
+    <script src="/static/js/tween.min.js"></script>
+    <script src="/static/js/TrackballControls.js"></script>
+    <script src="/static/js/CSS3DRenderer.js"></script>
+</head>
+<body>
+
+    <div class="custom-line"></div> <!-- 添加横线 -->
+    <div class="text-container">
+        <div class="dropdown" style="margin-right: 30px">
+              <button class="dropbtn" style="width: 220px"><a href="/history">丝路纪元</a></button>
+              <div class="dropdown-content">
+                <a href="/history">发展脉络</a>
+                <a href="/api1">趣味答题</a>
+              </div>
+        </div>
+         <div class="dropdown" style="margin-right: 30px">
+              <button class="dropbtn" style="width: 220px"><a href="/all">伙伴风采</a></button>
+              <div class="dropdown-content">
+                <a href="/all">时空演化</a>
+                <a href="/photos">联绸盛图</a>
+              </div>
+        </div>
+        <div class="dropdown" style="margin-right: 30px">
+              <button class="dropbtn" style="width: 220px"><a href="/eco">数绘经济</a></button>
+              <div class="dropdown-content">
+                <a href="/eco">经济数据</a>
+                <a href="/second">伙伴经济</a>
+              </div>
+        </div>
+        <div class="dropdown" style="margin-right: 30px">
+              <button class="dropbtn" style="width: 220px"><a href="/project">工程汇聚</a></button>
+              <div class="dropdown-content">
+                  <a href="/project">项目解析</a>
+                  <a href="/project3D">3D图谱</a>
+                  <a href="/question">智能问答</a>
+              </div>
+        </div>
+
+    </div>
+    <img src="/static/img/导航栏.png" alt="New Image" class="new-image">
+
+    <div id="container">
+
+    </div>
+
+    <div id="menu">
+        <button id="table" class="btn one">照片墙</button>
+        <button id="sphere" class="btn two">照片球</button>
+        <button id="helix" class="btn three">螺旋照片</button>
+        <button id="grid" class="btn four">整齐排列</button>
+    </div>
+
+    <script>
+        var personArray = new Array;
+        var CurPersonNum = 0;
+        // animate
+        var _in = ['bounceIn', 'bounceInDown', 'bounceInLeft', 'bounceInRight', 'bounceInUp', 'fadeIn', 'fadeInDown', 'fadeInDownBig', 'fadeInLeft', 'fadeInLeftBig', 'fadeInRight', 'fadeInRightBig', 'fadeInUp', 'fadeInUpBig', 'rotateIn', 'rotateInDownLeft', 'rotateInDownRight', 'rotateInUpLeft', 'rotateInUpRight', 'slideInDown', 'slideInLeft', 'slideInRight'];
+        var _out = ['bounceOut', 'bounceOutDown', 'bounceOutLeft', 'bounceOutRight', 'bounceOutUp', 'fadeOut', 'fadeOutDown', 'fadeOutDownBig', 'fadeOutLeft', 'fadeOutLeftBig', 'fadeOutRight', 'fadeOutRightBig', 'fadeOutUp', 'fadeOutUpBig', 'rotateOut', 'rotateOutDownLeft', 'rotateOutDownRight', 'rotateOutUpLeft', 'rotateOutUpRight', 'slideOutDown', 'slideOutLeft', 'slideOutRight'];
+
+        // 模拟推送数据
+        var s = setInterval(function () { // 定时出现动画
+            var rand_in = parseInt(Math.random() * _in.length, 10);
+            var rand_out = parseInt(Math.random() * _out.length, 10);
+            if (CurPersonNum >= personArray.length) {
+                CurPersonNum = 0;
+            }
+            $('.show_info').show();
+            $('.show_info').addClass(_in[rand_in]);
+            setTimeout(function () { // 显示动画
+                $('.show_info').removeClass(_in[rand_in]);
+                // 生成虚拟数据，为每个对象提供不同的图片路径
+
+              // 更改展示的图片
+var img = document.getElementsByClassName('element')[CurPersonNum].getElementsByTagName('img')[0];
+img.setAttribute('src', personArray[CurPersonNum].image); // 使用当前索引的图片路径
+// 为图片添加点击事件处理程序
+// 更新图片点击事件处理程序
+
+
+++CurPersonNum;
+
+                setTimeout(function () { // 消失动画
+                    $('.show_info').addClass(_out[rand_out]);
+                    setTimeout(function () { // 消失动画结束
+                        $('.show_info').removeClass(_out[rand_out]);
+                        $('.show_info').hide();
+                    }, 1000);
+                }, 1500);
+            }, 1000);
+        }, 10000);
+
+        // 生成虚拟数据
+        var imageUrls = [
+    'https://pic.imgdb.cn/item/662397170ea9cb1403d87a71.jpg',
+    'https://pic.imgdb.cn/item/662397130ea9cb1403d8735b.jpg',
+    'https://pic.imgdb.cn/item/662397090ea9cb1403d861c9.jpg',
+    'https://pic.imgdb.cn/item/6624a63a0ea9cb1403de7d85.jpg', 'https://pic.imgdb.cn/item/6624a6280ea9cb1403de62dd.jpg', 'https://pic.imgdb.cn/item/6624a61c0ea9cb1403de4f4e.jpg', 'https://pic.imgdb.cn/item/6624a60f0ea9cb1403de368a.jpg', 'https://pic.imgdb.cn/item/6624a5f70ea9cb1403de1242.jpg', 'https://pic.imgdb.cn/item/6624a5e30ea9cb1403ddf018.jpg', 'https://pic.imgdb.cn/item/6624a5d60ea9cb1403ddd292.jpg', 'https://pic.imgdb.cn/item/6624a5c80ea9cb1403ddbb04.jpg', 'https://pic.imgdb.cn/item/6624a5b80ea9cb1403dd9da6.jpg', 'https://pic.imgdb.cn/item/6624a5a10ea9cb1403dd779a.jpg', 'https://pic.imgdb.cn/item/6624a5940ea9cb1403dd5ea1.jpg', 'https://pic.imgdb.cn/item/6624a58b0ea9cb1403dd4ff8.jpg', 'https://pic.imgdb.cn/item/6624a57f0ea9cb1403dd3983.jpg', 'https://pic.imgdb.cn/item/6624a5760ea9cb1403dd2c1a.jpg', 'https://pic.imgdb.cn/item/6624a5600ea9cb1403dd061e.jpg', 'https://pic.imgdb.cn/item/6624a55b0ea9cb1403dcfce7.jpg', 'https://pic.imgdb.cn/item/6624a52c0ea9cb1403dca43b.jpg', 'https://pic.imgdb.cn/item/6624a5290ea9cb1403dc9f16.jpg', 'https://pic.imgdb.cn/item/6624a5030ea9cb1403dc597d.jpg', 'https://pic.imgdb.cn/item/6624a4f00ea9cb1403dc2df7.jpg', 'https://pic.imgdb.cn/item/6624a4ad0ea9cb1403db9f91.jpg', 'https://pic.imgdb.cn/item/6624a4a40ea9cb1403db8c42.jpg', 'https://pic.imgdb.cn/item/6624a4770ea9cb1403db2c48.jpg', 'https://pic.imgdb.cn/item/6624a46b0ea9cb1403db1560.jpg', 'https://pic.imgdb.cn/item/6624a4470ea9cb1403dacb4a.jpg', 'https://pic.imgdb.cn/item/6624a43d0ea9cb1403dab630.jpg', 'https://pic.imgdb.cn/item/6624a41e0ea9cb1403da7b36.jpg', 'https://pic.imgdb.cn/item/6624a4180ea9cb1403da721c.jpg', 'https://pic.imgdb.cn/item/6624a3e80ea9cb1403da1491.jpg', 'https://pic.imgdb.cn/item/6624a3e20ea9cb1403da0926.jpg', 'https://pic.imgdb.cn/item/6624a3780ea9cb1403d94414.jpg', 'https://pic.imgdb.cn/item/6624a36f0ea9cb1403d932a6.jpg', 'https://pic.imgdb.cn/item/6624a34a0ea9cb1403d8f46c.jpg', 'https://pic.imgdb.cn/item/6624a3460ea9cb1403d8ed48.jpg', 'https://pic.imgdb.cn/item/6624a3260ea9cb1403d8b087.jpg', 'https://pic.imgdb.cn/item/6624a3200ea9cb1403d8a76f.jpg', 'https://pic.imgdb.cn/item/6624a2f80ea9cb1403d85981.jpg', 'https://pic.imgdb.cn/item/6624a2f20ea9cb1403d84de0.jpg', 'https://pic.imgdb.cn/item/6624a2b60ea9cb1403d7e205.jpg', 'https://pic.imgdb.cn/item/6624a2b00ea9cb1403d7d340.jpg', 'https://pic.imgdb.cn/item/6624a2940ea9cb1403d7a3bc.jpg', 'https://pic.imgdb.cn/item/6624a2920ea9cb1403d79fca.jpg', 'https://pic.imgdb.cn/item/6624a27c0ea9cb1403d76eb7.jpg', 'https://pic.imgdb.cn/item/6624a27a0ea9cb1403d76a9c.jpg', 'https://pic.imgdb.cn/item/6624a2660ea9cb1403d74659.jpg', 'https://pic.imgdb.cn/item/6624a2620ea9cb1403d73bc6.jpg', 'https://pic.imgdb.cn/item/6624a2460ea9cb1403d705c4.jpg', 'https://pic.imgdb.cn/item/6624a2420ea9cb1403d6fe26.jpg', 'https://pic.imgdb.cn/item/6624a22c0ea9cb1403d6cfcb.jpg', 'https://pic.imgdb.cn/item/6624a2270ea9cb1403d6c877.jpg', 'https://pic.imgdb.cn/item/6624a20a0ea9cb1403d6986b.jpg', 'https://pic.imgdb.cn/item/6624a2070ea9cb1403d692a9.png', 'https://pic.imgdb.cn/item/6624a1f60ea9cb1403d674b3.jpg', 'https://pic.imgdb.cn/item/6624a1f40ea9cb1403d67028.jpg', 'https://pic.imgdb.cn/item/6624a1df0ea9cb1403d64ad8.jpg', 'https://pic.imgdb.cn/item/6624a1dc0ea9cb1403d64580.jpg', 'https://pic.imgdb.cn/item/6624a1ca0ea9cb1403d6257a.jpg', 'https://pic.imgdb.cn/item/6624a1c10ea9cb1403d6179a.jpg', 'https://pic.imgdb.cn/item/6624a1ae0ea9cb1403d5f88e.jpg', 'https://pic.imgdb.cn/item/6624a1ab0ea9cb1403d5f401.jpg', 'https://pic.imgdb.cn/item/6624a1950ea9cb1403d5c9c9.jpg', 'https://pic.imgdb.cn/item/6624a1920ea9cb1403d5c3a6.jpg', 'https://pic.imgdb.cn/item/6624a16c0ea9cb1403d57a83.jpg', 'https://pic.imgdb.cn/item/6624a16a0ea9cb1403d57681.jpg', 'https://pic.imgdb.cn/item/6624a1580ea9cb1403d55130.jpg', 'https://pic.imgdb.cn/item/6624a1560ea9cb1403d54c2c.jpg', 'https://pic.imgdb.cn/item/6624a1410ea9cb1403d52781.jpg', 'https://pic.imgdb.cn/item/6624a1380ea9cb1403d51846.jpg', 'https://pic.imgdb.cn/item/6624a12d0ea9cb1403d50296.jpg', 'https://pic.imgdb.cn/item/6624a1070ea9cb1403d4c1d3.png', 'https://pic.imgdb.cn/item/6624a0fe0ea9cb1403d4b381.jpg', 'https://pic.imgdb.cn/item/6624a0e10ea9cb1403d481f5.jpg', 'https://pic.imgdb.cn/item/6624a0d50ea9cb1403d46ec6.jpg', 'https://pic.imgdb.cn/item/6624a0cd0ea9cb1403d460a6.jpg', 'https://pic.imgdb.cn/item/6624a0bc0ea9cb1403d444ea.jpg', 'https://pic.imgdb.cn/item/6624a0ab0ea9cb1403d42421.jpg', 'https://pic.imgdb.cn/item/6624a09b0ea9cb1403d40a85.jpg', 'https://pic.imgdb.cn/item/6624a08a0ea9cb1403d3ea3a.jpg', 'https://pic.imgdb.cn/item/6624a07c0ea9cb1403d3d44d.jpg', 'https://pic.imgdb.cn/item/6624a0700ea9cb1403d3ba86.jpg', 'https://pic.imgdb.cn/item/6624a05f0ea9cb1403d39ad7.jpg', 'https://pic.imgdb.cn/item/6624a0430ea9cb1403d36128.jpg', 'https://pic.imgdb.cn/item/6624a03a0ea9cb1403d35082.jpg', 'https://pic.imgdb.cn/item/6624a0310ea9cb1403d33e13.jpg', 'https://pic.imgdb.cn/item/6624a02a0ea9cb1403d33238.jpg', 'https://pic.imgdb.cn/item/6624a01d0ea9cb1403d31bcf.jpg', 'https://pic.imgdb.cn/item/6624a00e0ea9cb1403d2fef5.jpg', 'https://pic.imgdb.cn/item/6624a0040ea9cb1403d2ec92.jpg', 'https://pic.imgdb.cn/item/66249fee0ea9cb1403d2c511.jpg', 'https://pic.imgdb.cn/item/66249fdf0ea9cb1403d2aa92.jpg', 'https://pic.imgdb.cn/item/66249fcc0ea9cb1403d28dc2.jpg', 'https://pic.imgdb.cn/item/66249fc00ea9cb1403d278d5.jpg', 'https://pic.imgdb.cn/item/66249fb50ea9cb1403d26713.jpg', 'https://pic.imgdb.cn/item/66249fac0ea9cb1403d25670.jpg', 'https://pic.imgdb.cn/item/66249f9d0ea9cb1403d23bed.jpg', 'https://pic.imgdb.cn/item/66249f940ea9cb1403d229d4.jpg', 'https://pic.imgdb.cn/item/66249f870ea9cb1403d2149f.jpg', 'https://pic.imgdb.cn/item/66249f810ea9cb1403d20bc4.jpg', 'https://pic.imgdb.cn/item/66249f7b0ea9cb1403d20228.jpg', 'https://pic.imgdb.cn/item/66249f760ea9cb1403d1f712.jpg'
+];
+
+       // 添加图片路径到 personArray 数组，直到总数达到100张为止
+for (var i = 0; personArray.length < 100; i++) {
+    personArray.push({
+        image: imageUrls[i % imageUrls.length] // 使用取余操作确保循环使用图片路径数组
+    });
+
+}
+
+
+        var table = new Array;
+        for (var i = 0; i < personArray.length; i++) {
+            table[i] = new Object();
+            if (i < personArray.length) {
+                table[i] = personArray[i];
+                table[i].src = personArray[i].thumb_image;
+            }
+            table[i].p_x = i % 15 + 1;//调节行列
+            table[i].p_y = Math.floor(i / 20) + 4;//table的位置
+        }
+
+        var camera, scene, renderer;
+        var controls;
+
+        var objects = [];
+        var targets = { table: [], sphere: [], helix: [], grid: [] };
+
+        init();
+        animate();
+
+        function init() {
+
+            camera = new THREE.PerspectiveCamera(30, window.innerWidth / window.innerHeight, 10, 8000);//整体大小
+            camera.position.z = 3000;
+
+            scene = new THREE.Scene();
+
+            // table
+            for (var i = 0; i < table.length; i++) {
+
+                var element = document.createElement('div');
+                element.className = 'element';
+                element.style.backgroundColor = 'rgba(0,127,127,' + (Math.random() * 0.5 + 0.25) + ')';
+
+                var img = document.createElement('img');
+                img.src = table[i].image;
+                element.appendChild(img);
+ // 添加点击事件监听器
+ element.addEventListener('click', function() {
+        // 在这里执行页面跳转操作
+        window.location.href = "/Russia"; // 更换为你想要跳转的页面地址
+    });
+                var object = new THREE.CSS3DObject(element);
+                object.position.x = Math.random() * 4000 - 2000;
+                object.position.y = Math.random() * 4000 - 2000;
+                object.position.z = Math.random() * 4000 - 2000;
+                scene.add(object);
+
+                objects.push(object);
+
+
+                // 表格需要坐标进行排序的
+                var object = new THREE.Object3D();
+                // object.position.x = ( table[ i + 3 ] * 140 ) - 1330;
+                // object.position.y = - ( table[ i + 4 ] * 180 ) + 990;
+                object.position.x = (table[i].p_x * 180) - 1330;
+                object.position.y = - (table[i].p_y * 180) + 1090;
+
+                targets.table.push(object);
+
+            }
+
+            // sphere
+            var vector = new THREE.Vector3();
+            var spherical = new THREE.Spherical();
+
+            for (var i = 0, l = objects.length; i < l; i++) {
+
+                var phi = Math.acos(-1 + (2 * i) / l);
+                var theta = Math.sqrt(l * Math.PI) * phi;
+
+                var object = new THREE.Object3D();
+
+                spherical.set(600, phi, theta);//调节紧凑
+
+                object.position.setFromSpherical(spherical);
+                object.position.y -= 100; // 向下移动球体 200 个单位
+
+                vector.copy(object.position).multiplyScalar(2);
+
+                object.lookAt(vector);
+
+                targets.sphere.push(object);
+
+            }
+
+
+            // helix
+            var vector = new THREE.Vector3();
+            var cylindrical = new THREE.Cylindrical();
+
+            for (var i = 0, l = objects.length; i < l; i++) {
+
+                var theta = i * 0.175 + Math.PI;
+                var y = - (i * 5) + 300;//移动表的位置
+
+                var object = new THREE.Object3D();
+
+                // 参数一 圈的大小 参数二 左右间距 参数三 上下间距
+                cylindrical.set(1200, theta, y);
+
+                object.position.setFromCylindrical(cylindrical);
+
+                vector.x = object.position.x * 2;
+                vector.y = object.position.y;
+                vector.z = object.position.z * 2;
+
+                object.lookAt(vector);
+
+                targets.helix.push(object);
+
+            }
+
+            // grid
+            for (var i = 0; i < objects.length; i++) {
+
+                var object = new THREE.Object3D();
+
+                object.position.x = ((i % 5) * 200) - 300; // 400 图片的左右间距  800 x轴中心店
+                object.position.y = (- (Math.floor(i / 5) % 5) * 200) + 300;  // 500 y轴中心店
+                object.position.z = (Math.floor(i / 25)) * 200 - 800;// 300调整 片间距 800z轴中心店
+                // 调整图片的大小
+    object.scale.set(2.5, 2.5, 2.5); // 例如，将图片放大 1.5 倍
+
+                targets.grid.push(object);
+
+            }
+
+            //渲染
+            renderer = new THREE.CSS3DRenderer();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.domElement.style.position = 'absolute';
+            document.getElementById('container').appendChild(renderer.domElement);
+
+            // 鼠标控制
+            controls = new THREE.TrackballControls(camera, renderer.domElement);
+            controls.rotateSpeed = 0.5;
+            controls.minDistance = 500;
+            controls.maxDistance = 6000;
+            controls.addEventListener('change', render);
+
+
+
+            var button = document.getElementById('table');
+            button.addEventListener('click', function (event) {
+                transform(targets.table, 1000);
+            }, false);
+
+            var button = document.getElementById('sphere');
+            button.addEventListener('click', function (event) {
+                transform(targets.sphere, 2000);
+            }, false);
+
+            var button = document.getElementById('helix');
+            button.addEventListener('click', function (event) {
+                transform(targets.helix, 2000);
+            }, false);
+
+            var button = document.getElementById('grid');
+            button.addEventListener('click', function (event) {
+                transform(targets.grid, 2000);
+            }, false);
+
+            transform(targets.table, 2000);
+
+            //
+
+            window.addEventListener('resize', onWindowResize, false);
+
+        }
+
+        function transform(targets, duration) {
+
+            TWEEN.removeAll();
+
+            for (var i = 0; i < objects.length; i++) {
+
+                var object = objects[i];
+                var target = targets[i];
+
+                new TWEEN.Tween(object.position)
+                    .to({ x: target.position.x, y: target.position.y, z: target.position.z }, Math.random() * duration + duration)
+                    .easing(TWEEN.Easing.Exponential.InOut)
+                    .start();
+
+                new TWEEN.Tween(object.rotation)
+                    .to({ x: target.rotation.x, y: target.rotation.y, z: target.rotation.z }, Math.random() * duration + duration)
+                    .easing(TWEEN.Easing.Exponential.InOut)
+                    .start();
+
+            }
+
+            new TWEEN.Tween(this)
+                .to({}, duration * 2)
+                .onUpdate(render)
+                .start();
+
+        }
+
+        function onWindowResize() {
+
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+
+            renderer.setSize(window.innerWidth, window.innerHeight);
+
+            render();
+
+        }
+
+        function animate() {
+
+            // 让场景通过x轴或者y轴旋转  & z
+            // scene.rotation.x += 0.011;
+            scene.rotation.y += 0.008;
+
+            requestAnimationFrame(animate);
+
+            TWEEN.update();
+
+            controls.update();
+
+            // 渲染循环
+            render();
+
+        }
+
+        function render() {
+
+            renderer.render(scene, camera);
+
+        }
+
+    </script>
+
+    <div id="scrollrail-vertical" style="display: none;">
+        <div id="scrollbar-vertical"></div>
+    </div>
+    <div id="scrollrail-horizontal" style="display: none;">
+        <div id="scrollbar-horizontal"></div>
+    </div>
+</body>
+
+</html>

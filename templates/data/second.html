@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>数绘经济</title>
+    <link rel="stylesheet" href="/static/css/second.css" />
+    <script src="/static/js/echarts.min.js"></script>
+    <script src="/static/js/echarts-gl.min.js"></script>
+      <style>
+    a {
+      text-decoration: none;
+      position: absolute;
+      left: 100px;
+      top: 30px;
+      /* 居中 */
+      transform: translate(-50%, -50%);
+      font-size: 24px;
+      background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+      background-size: 400%;
+      width: 150px;
+      height: 50px;
+      color: #fff;
+      line-height: 50px;
+      text-align: center;
+      text-transform: uppercase;
+      border-radius: 50px;
+      z-index: 1;
+    }
+
+    a::before {
+      content: "";
+      position: absolute;
+      left: -5px;
+      right: -5px;
+      top: -5px;
+      bottom: -5px;
+      background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+      background-size: 400%;
+      border-radius: 50px;
+      filter: blur(20px);
+      z-index: -1;
+    }
+    a:hover::before {
+      animation: sun 8s infinite;
+    }
+    a:hover {
+      animation: sun 8s infinite;
+    }
+    @keyframes sun {
+      100% {
+        background-position: -400% 0;
+      }
+    }
+  </style>
+  </head>
+  <body>
+    <!-- 头部 -->
+    <header>
+        <div class="dropdown">
+              <button class="dropbtn"><a>返回</a></button>
+              <div class="dropdown-content">
+                <a href="/index" style="top:48px">首页</a>
+                <a href="/eco" style="top: 98px">经济数据</a>
+              </div>
+        </div>
+      <h1>一带一路成员国GDP增速</h1>
+      <div class="show-time"></div>
+      <script>
+        var t = null;
+        t = setTimeout(time, 1000); //开始运行
+        function time() {
+          clearTimeout(t); //清除定时器
+          dt = new Date();
+          var y = dt.getFullYear();
+          var mt = dt.getMonth() + 1;
+          var day = dt.getDate();
+          var h = dt.getHours(); //获取时
+          var m = dt.getMinutes(); //获取分
+          var s = dt.getSeconds(); //获取秒
+          document.querySelector(".show-time").innerHTML =
+            "当前时间：" +
+            y +
+            "年" +
+            mt +
+            "月" +
+            day +
+            "日-" +
+            h +
+            "时" +
+            m +
+            "分" +
+            s +
+            "秒";
+          t = setTimeout(time, 1000); //设定定时器，循环运行
+        }
+      </script>
+    </header>
+
+    <!-- 页面主体 -->
+    <section class="mainbox">
+      <!-- 左侧盒子 -->
+      <div class="column">
+        <div class="panel bar scroll-wrap1">
+            <div>
+                <img src="https://pic.imgdb.cn/item/66275bdd0ea9cb140386b79c.png" alt="" style="width: 500px;height: 120px;">
+            </div>
+            <div class="scroll-text1">
+              <p style="color: aliceblue;font-size: 21px;"><span>&#128276;</span>2024年1月全国吸收外资1127.1亿元人民币</p>
+              <p style="color: aliceblue;font-size: 21px;"><span>&#128277;</span>2023年，全国固定资产投资（不含农户）503036亿元，比上年增长3.0%</p>
+              <p style="color: aliceblue;font-size: 21px;"><span>&#128159;</span>2023年，民间固定资产投资253544亿元，比上年下降0.4%</p>
+              <p style="color: aliceblue;font-size: 21px;"><span>&#128276;</span>2023 年，我国企业在'一带一路”共建国家非金融类直接投资 2240.9 亿元</p>
+            </div>
+            <div class="panel-footer"></div>
+          </div>
+
+        <div class="panel line">
+          <h2>各成员国GDP增速柱状图</h2>
+          <div class="chart"></div>
+          <div class="panel-footer"></div>
+        </div>
+
+        <div class="panel bar">
+            <h2>各大洲签订合约国家个数</h2>
+            <!-- 图表放置盒子 -->
+            <div class="chart"></div>
+            <!-- 伪元素绘制盒子下边角 -->
+            <div class="panel-footer"></div>
+          </div>
+      </div>
+
+      <!-- 中间盒子 -->
+      <div class="column">
+        <!-- 头部 no模块 -->
+        <div class="no">
+          <div class="no-hd">
+            <ul>
+              <li>23</li>
+              <li>0.1232</li>
+            </ul>
+          </div>
+          <div class="no-bd">
+            <ul>
+              <li>一带一路图表GDP国家个数</li>
+              <li>GDP增速最高--蒙古国</li>
+            </ul>
+          </div>
+        </div>
+        <!-- 图片模块 -->
+        <div class="picture">
+            <div class="inner">
+                <img src="https://pic.imgdb.cn/item/66275c260ea9cb14038741fa.png" alt="" style="width: 880px;height: 300px;">
+            </div>
+
+        </div>
+        <!-- map模块 -->
+        <div class="map">
+          <div class="map1"></div>
+          <div class="chart"></div>
+        </div>
+      </div>
+      
+      <!-- 右侧盒子 -->
+      <div class="column">
+        <div class="panel bar2 scroll-wrap">
+            <div class="scroll-text">
+            <p style="color: aliceblue;font-size: 23px;"><span>&#128277;</span>2013年9月7日习主席提出共建“丝绸之路经济带”倡议</p>
+            <p style="color: aliceblue;font-size: 23px;"><span>&#128159;</span>2014年6月，习近平阐释了共建“一带一路”的“共商、共建、共享”合作原则</p>
+            <p style="color: aliceblue;font-size: 23px;"><span>&#128276;</span>2015年9月25日，联合国可持续发展峰会通过了一份由193个会员国共同达成的成果文件</p>
+            <p style="color: aliceblue;font-size: 23px;"><span>&#128277;</span>2016年3月，联合国安理会决议首次纳入“一带一路”倡议</p>
+            <p style="color: aliceblue;font-size: 23px;"><span>&#128159;</span>2017年6月《“一带一路”建设海上合作设想》发布</p>
+            <p style="color: aliceblue;font-size: 23px;"><span>&#128276;</span>2017年9月，第 71 届联合国大会将“共商、共建、共享”原则写入“联合国与全球经济治理”决议</p>
+            <p style="color: aliceblue;font-size: 23px;"><span>&#128277;</span>2018年9月3日，中非合作论坛北京峰会召开——共建中非命运共同体</p>
+            <p style="color: aliceblue;font-size: 23px;"><span>&#128159;</span>2018年11月5日—10日，首届中国国际进口博览会举行</p>
+            <p style="color: aliceblue;font-size: 23px;"><span>&#128276;</span>这2019年4月25日，第二届“一带一路”国际合作高峰论坛举行</p>
+            <p style="color: aliceblue;font-size: 23px;"><span>&#128277;</span>2019年6月27日，首届中国—非洲经贸博览会开幕</p>
+            <p style="color: aliceblue;font-size: 23px;"><span>&#128159;</span>2022年10月，中共二十大报告提出了“推动共建‘一带一路’高质量发展”的要求</p>
+            <p style="color: aliceblue;font-size: 23px;"><span>&#128276;</span>2013至2021年间，中国对世界经济增长的平均贡献率达38.6%。</p>
+              <p style="color: aliceblue;font-size: 23px;"><span>&#128277;</span>中国拥有41个工业大类、207个工业中类、666个工业小类，形成了独立完整的现代工业体系。</p>
+              <p style="color: aliceblue;font-size: 23px;"><span>&#128159;</span>从2012年到2021年，中国工业增加值从20.9万亿元增长到37.3万亿元，年均增长6.3%。</p>
+              <p style="color: aliceblue;font-size: 23px;"><span>&#128159;</span>2022年，货物进出口总额420678亿元，比上年增长7.7%。</p>
+              <p style="color: aliceblue;font-size: 23px;"><span>&#128277;</span>2024年1-2月全国吸收外资2150.9亿元</p>
+
+
+          </div>
+          <div class="panel-footer"></div>
+        </div>
+        <div class="panel line2">
+          <h2>海上-空中航线直达国家个数</h2>
+          <div class="chart"></div>
+          <div class="panel-footer"></div>
+        </div>
+
+      <div class="panel line3">
+        <h2>成员国人口数量排比</h2>
+        <div class="chart"></div>
+        <div class="panel-footer"></div>
+      </div>
+    </div>
+      
+    </section>
+
+    <script src="/static/js/flexible.js"></script>
+    <script src="/static/js/jquery.js"></script>
+    <!-- 引入china.js 完成地图模块 -->
+    <script src="/static/js/china.js"></script>
+    <script src="/static/js/second.js"></script>
+    <script type="text/javascript">
+
+    </script>
+  </body>
+</html>

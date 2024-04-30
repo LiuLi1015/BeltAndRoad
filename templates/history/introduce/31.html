@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="/static/js/jquery-3.4.1.min.js"></script>
+    <script src="/static/js/jquery-1.9.1.js"></script>
+    <link rel="stylesheet" href="/static/css/zhangqian.css" />
+    <title>历史</title>
+ 
+</head>
+<body>
+ <div class="bg">
+      <div class="content">
+           <div class="head" style="height: 68px; padding-left: 1100px">
+            <div class="dropdown">
+              <button class="dropbtn"><a href="/history">丝路纪元</a></button>
+              <div class="dropdown-content">
+                <a href="/history">发展脉络</a>
+                <a href="/api1">趣味答题</a>
+              </div>
+        </div>
+         <div class="dropdown">
+              <button class="dropbtn"><a href="/all">伙伴风采</a></button>
+              <div class="dropdown-content">
+                <a href="/all">时空演化</a>
+                <a href="/photos">联绸盛图</a>
+              </div>
+        </div>
+        <div class="dropdown">
+              <button class="dropbtn"><a href="/eco">数绘经济</a></button>
+              <div class="dropdown-content">
+                <a href="/eco">经济数据</a>
+                <a href="/second">伙伴经济</a>
+              </div>
+        </div>
+        <div class="dropdown">
+              <button class="dropbtn"><a href="/project">工程汇聚</a></button>
+              <div class="dropdown-content">
+                  <a href="/project">项目解析</a>
+                  <a href="/project3D">3D图谱</a>
+                  <a href="/question">智能问答</a>
+              </div>
+        </div>
+           </div>
+           <div class="container">
+                <div class="left-group">
+                    <ul class="j-list-block">
+                        <li>
+                            <div><span>中共二十大报告提出了“推动共建‘一带一路’高质量发展”的要求
+                            </span></div>
+                            <div><span>2022年10月
+                            </span>
+                                <p>共建“一带一路”提出9年来，从夯基垒台、立柱架梁到落地生根、持续推进，取得了令人瞩目的丰硕成果，共建“一带一路”的朋友圈越来越大。                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="mid-group">
+                    <video width="1100px" height="500px" controls>
+                        <source src="../../../static/videos/31.mp4" type="video/mp4">
+                        您的浏览器不支持视频播放。
+                      </video>
+                </div>
+                <div class="right-group">
+                    <ul class="j-list-block">
+                        <li>
+                            <div><span>中共二十大报告提出了“推动共建‘一带一路’高质量发展”的要求
+                            </span></div>
+                            <div><span>2022年10月</span>
+                                <p>在追求实现自身现代化的同时，坚定历史自信，增强历史主动，同共建各方共同努力，推动共建“一带一路”高质量发展，必将为促进世界经济增长、增进各国人民福祉。
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+           </div>
+
+           <div class="x-title-block">
+            <p style="color: aliceblue;">第三十一阶段--“一带一路”建设走入国际视野</p>
+        </div>
+
+           <div class="people-block">
+            <a href=https://news.cnr.cn/native/gd/sz/20221108/t20221108_526054691.shtml><img src="../../../static/img/31-1.png" class="people-image" alt="Image 1"></a>
+            <a href=https://news.cnr.cn/native/gd/sz/20221108/t20221108_526054691.shtml><img src="../../../static/img/31-2.jpg" class="people-image" alt="Image 2"></a>
+            <a href=https://news.cnr.cn/native/gd/sz/20221108/t20221108_526054691.shtml><img src="../../../static/img/31-3.jpg" class="people-image" alt="Image 3"></a>
+            <a href=https://news.cnr.cn/native/gd/sz/20221108/t20221108_526054691.shtml><img src="../../../static/img/31-4.png" class="people-image" alt="Image 4"></a>
+            <a href=https://news.cnr.cn/native/gd/sz/20221108/t20221108_526054691.shtml><img src="../../../static/img/10-5.png" class="people-image" alt="Image 5"></a>
+           </div>
+      </div>
+    </div>
+    <script>
+        $(function () {
+    var images = document.getElementsByClassName('people-image');
+    var delay = 1200; // 延迟时间，单位为毫秒
+    
+    for (var i = 0; i < images.length; i++) {
+        images[i].style.opacity = '0'; // 设置初始透明度为0
+    }
+    
+    for (var i = 0; i < images.length; i++) {
+        (function(i) {
+            setTimeout(function() {
+                images[i].style.display = 'block'; // 先显示图片
+                setTimeout(function() {
+                    images[i].style.opacity = '1'; // 再将透明度逐渐变为1
+                }, 50); // 添加一个小延迟，确保浏览器能够正确应用过渡效果
+            }, i * delay);
+        })(i);
+    }
+});
+
+    </script>
+</body>
+</html>

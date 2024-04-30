@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>缘起丝路</title>
+<style>
+ body {
+    background-image: url('/static/img/index-bg.png');
+    background-size: 100% 100%;
+    background-position: center;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* 确保裁剪效果在视口内显示 */
+}
+
+/* 新增一个 div 作为裁剪区域 */
+.clip-path-container {
+    width: 0; /* 初始宽度为 0 */
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    background-color: #fff; /* 设置背景颜色 */
+    transition: width 0.5s ease; /* 添加过渡效果 */
+    z-index: 1; /* 确保裁剪区域位于图标之下 */
+    clip-path: polygon(0 0, 50% 0, 50% 100%, 0% 100%); /* 初始裁剪为左半部分 */
+}
+
+.clip-path-container.expand {
+    width: 100%; /* 展开为整个视口宽度 */
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%); /* 完整裁剪为整个视口 */
+}
+
+    .flip-container {
+        perspective: 1000px;
+        width: 200px;
+        height: 200px;
+        margin: 20px;
+        position: relative; /* 添加相对定位 */
+        opacity: 0; /* 初始设置为透明 */
+        transition: opacity 0.5s ease; /* 添加过渡效果 */
+    }
+    body .flip-container.custom-class1 {
+    left: 310px; /* 设置左边距 */
+    top: -20px; /* 设置上边距 */
+}
+
+body .flip-container.custom-class2 {
+    top: -20px; /* 设置上边距 */
+    left: 400px; /* 设置左边距 */
+}
+  /* 其他样式保持不变 */
+  body .flip-container.custom-class3 {
+    top: 250px; /* 设置上边距 */
+    left: -580px; /* 设置左边距 */
+}
+body .flip-container.custom-class4 {
+    top: 250px; /* 设置上边距 */
+    left: -480px; /* 设置左边距 */
+}
+    .flip-container:hover .flipper,
+    .flip-container.hover .flipper {
+        transform: rotateY(180deg);
+    }
+
+    .flip-container, .front, .back {
+        width: 300px;
+        height: 300px;
+    }
+
+    .flipper {
+        transition: 0.6s;
+        transform-style: preserve-3d;
+        position: relative;
+    }
+
+    .front, .back {
+        backface-visibility: hidden;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    .front {
+        z-index: 2;
+        background-size: cover;
+    }
+
+    /* 新增样式用于隐藏视频 */
+    #opening-video {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh; /* 设置视频高度为整个页面高度 */
+        object-fit: fill; /* 填充整个视频容器，不保持宽高比例 */
+        z-index: 9999; /* 确保视频在最顶层 */
+    }
+</style>
+</head>
+<body>
+
+<!-- 添加开场动画视频 -->
+<video id="opening-video" autoplay muted>
+      <source src="/static/videos/index.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
+
+<div class="flip-container custom-class1" onclick="window.location.href='/history';">
+    <div class="flipper">
+        <div class="front" style="background-image: url('https://pic.imgdb.cn/item/662cd9260ea9cb1403d063b4.png');"></div>
+    </div>
+</div>
+
+<div class="flip-container custom-class2" onclick="window.location.href='/eco';">
+    <div class="flipper">
+        <div class="front" style="background-image: url('https://pic.imgdb.cn/item/662cd93b0ea9cb1403d08ddd.png');"></div>
+    </div>
+</div>
+
+<div class="flip-container custom-class3" onclick="window.location.href='/all';">
+    <div class="flipper">
+        <div class="front" style="background-image: url('https://pic.imgdb.cn/item/662cd9510ea9cb1403d0b977.png');"></div>
+    </div>
+</div>
+
+<div class="flip-container custom-class4" onclick="window.location.href='/project';">
+    <div class="flipper">
+        <div class="front" style="background-image: url('https://pic.imgdb.cn/item/662cd9660ea9cb1403d0fc6c.png');"></div>
+    </div>
+</div>
+
+<script>
+    window.onload = function() {
+        // 检查用户是否已观看过动画
+        var hasWatched = sessionStorage.getItem('hasWatched');
+
+        // 如果用户未观看过动画，则播放动画
+        if (!hasWatched) {
+            var video = document.getElementById('opening-video');
+            video.style.display = 'block'; // 显示视频
+
+            // 监听视频播放结束事件
+            video.onended = function() {
+                video.style.display = 'none'; // 隐藏视频
+
+                // 淡入显示图标
+                var flipContainers = document.querySelectorAll('.flip-container');
+                flipContainers.forEach(function(container, index) {
+                    setTimeout(function() {
+                        container.style.opacity = '1';
+                    }, index * 200); // 间隔200毫秒显示一个图标
+                });
+
+                sessionStorage.setItem('hasWatched', 'true'); // 记录用户已观看过动画
+            };
+        } else {
+            // 如果用户已观看过动画，则直接显示图标
+            var flipContainers = document.querySelectorAll('.flip-container');
+            flipContainers.forEach(function(container) {
+                container.style.opacity = '1';
+            });
+        }
+    };
+    </script>
+</body>
+</html>
+

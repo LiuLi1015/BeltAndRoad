@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="/static/js/jquery-3.4.1.min.js"></script>
+    <script src="/static/js/jquery-1.9.1.js"></script>
+    <link rel="stylesheet" href="/static/css/zhangqian.css" />
+    <title>历史</title>
+ 
+</head>
+<body>
+ <div class="bg">
+      <div class="content">
+           <div class="head" style="height: 68px; padding-left: 1100px">
+            <div class="dropdown">
+              <button class="dropbtn"><a href="/history">丝路纪元</a></button>
+              <div class="dropdown-content">
+                <a href="/history">发展脉络</a>
+                <a href="/api1">趣味答题</a>
+              </div>
+        </div>
+         <div class="dropdown">
+              <button class="dropbtn"><a href="/all">伙伴风采</a></button>
+              <div class="dropdown-content">
+                <a href="/all">时空演化</a>
+                <a href="/photos">联绸盛图</a>
+              </div>
+        </div>
+        <div class="dropdown">
+              <button class="dropbtn"><a href="/eco">数绘经济</a></button>
+              <div class="dropdown-content">
+                <a href="/eco">经济数据</a>
+                <a href="/second">伙伴经济</a>
+              </div>
+        </div>
+        <div class="dropdown">
+              <button class="dropbtn"><a href="/project">工程汇聚</a></button>
+              <div class="dropdown-content">
+                  <a href="/project">项目解析</a>
+                  <a href="/project3D">3D图谱</a>
+                  <a href="/question">智能问答</a>
+              </div>
+        </div>
+           </div>
+           <div class="container">
+                <div class="left-group">
+                    <ul class="j-list-block">
+                        <li>
+                            <div><span>中国与意大利签署“一带一路”合作文件
+                            </span></div>
+                            <div><span>2019年3月23日
+                            </span>
+                                <p>中意建立全面战略伙伴关系15年以来，两国政治互信和务实合作取得长足进展。在当前国际形势发生复杂深刻变化的大背景下，加强中意全面战略伙伴关系，有利于维护世界和平稳定，促进可持续发展和繁荣。
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="mid-group">
+                    <video width="1100px" height="500px" controls>
+                        <source src="../../../static/videos/26.mp4" type="video/mp4">
+                        您的浏览器不支持视频播放。
+                      </video>
+                </div>
+                <div class="right-group">
+                    <ul class="j-list-block">
+                        <li>
+                            <div><span>中国与意大利签署“一带一路”合作文件
+                            </span></div>
+                            <div><span>2019年3月23日</span>
+                                <p>双方愿充分发挥中意政府委员会的作用，全面落实两国领导人达成的重要共识。两国外交部愿就双边关系及共同关心的国际和地区问题建立高级别定期磋商机制。
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+           </div>
+
+           <div class="x-title-block">
+            <p style="color: aliceblue;">第二十六阶段--“一带一路”建设走入国际视野</p>
+        </div>
+
+           <div class="people-block">
+            <a href=https://www.gov.cn/xinwen/2019-03/23/content_5376303.htm><img src="../../../static/img/26-1.png" class="people-image" alt="Image 1"></a>
+            <a href=https://www.gov.cn/xinwen/2019-03/23/content_5376303.htm><img src="../../../static/img/26-2.png" class="people-image" alt="Image 2"></a>
+            <a href=https://www.gov.cn/xinwen/2019-03/23/content_5376303.htm><img src="../../../static/img/26-3.png" class="people-image" alt="Image 3"></a>
+            <a href=https://www.gov.cn/xinwen/2019-03/23/content_5376303.htm><img src="../../../static/img/26-4.png" class="people-image" alt="Image 4"></a>
+            <a href=https://www.gov.cn/xinwen/2019-03/23/content_5376303.htm><img src="../../../static/img/26-5.jpg" class="people-image" alt="Image 5"></a>
+           </div>
+      </div>
+    </div>
+    <script>
+        $(function () {
+    var images = document.getElementsByClassName('people-image');
+    var delay = 1200; // 延迟时间，单位为毫秒
+    
+    for (var i = 0; i < images.length; i++) {
+        images[i].style.opacity = '0'; // 设置初始透明度为0
+    }
+    
+    for (var i = 0; i < images.length; i++) {
+        (function(i) {
+            setTimeout(function() {
+                images[i].style.display = 'block'; // 先显示图片
+                setTimeout(function() {
+                    images[i].style.opacity = '1'; // 再将透明度逐渐变为1
+                }, 50); // 添加一个小延迟，确保浏览器能够正确应用过渡效果
+            }, i * delay);
+        })(i);
+    }
+});
+
+    </script>
+</body>
+</html>

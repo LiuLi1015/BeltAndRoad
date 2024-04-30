@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>工程项目</title>
+        <style>
+            body{
+                margin: 0;
+                padding: 10px;
+            }
+            .title{
+                width: 100%;
+                height: 120px;
+                background-color: rgb(221, 233, 245);
+                margin-top: -20px;
+                display: flex;
+                justify-content: center;
+            }
+            h2{
+                text-align: center;
+                font-size: 70px;
+                font-family: STXinwei;
+                color: rgb(8, 8, 8);
+                margin-top: 30px;
+            }
+            .rec {
+                display: flex;
+                justify-content: space-around;
+                margin-top: -130px; /* 设置与顶部的距离 */
+            }
+            .word{
+                display: flex;
+                justify-content: space-around;
+                top:40px;
+                position: relative;
+                background-color: rgb(235, 238, 241);
+                border-color: #fdfbfb;
+            }
+            .rec3{
+                display: flex;
+                top:35px;
+                position: relative;
+                text-align: left;
+                width: 100%;
+                height:40px;
+            }
+             .rec4{
+                display: flex;
+                top:35px;
+                position: relative;
+                text-align: left;
+                width: 100%;
+                height:40px;
+                 margin-top: 20px;
+            }
+
+            .box {
+                width: 15%;
+                padding: 40px;
+                height:180px;
+                background-color: #93c7da;
+                border: 1px solid #ccc;
+                border-radius: 10px;
+            }
+            .int{
+                width: 45px;
+                height: 45px;
+                top:-40px;
+                position: relative;
+                max-width: 100%;
+                max-height: 100%;
+                display: block;
+                margin: 0 auto;
+            }
+            p{
+                font-size: 24px;
+                font-family: Arial, Helvetica, sans-serif;
+                font-weight: bold;
+                top:-50px;
+                position: relative;
+                color: rgb(255, 255, 255);
+                text-align: left;
+            }
+            .rec1{
+                width: 100%;
+                height:2px;
+                top:30px;
+                position: relative;
+                background-color: rgb(251, 242, 242);
+            }
+            .second{
+                font-size: 24px;
+                font-family: Arial, Helvetica, sans-serif;
+                font-weight: bold;
+                top:5px;
+                position: relative;
+                color: rgb(95, 94, 94);
+            }
+           /* 表格样式 */
+           .table-container {
+            border-radius: 10px; /* 圆角 */
+            box-shadow: 1px 1px 10px rgba(76, 240, 252, 0.1); /* 阴影 */
+            text-align: center;
+            padding-bottom: 70px;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            height: 300px;
+            text-align: center; /* 居中对齐 */
+            font-size: 25px;
+            top: 45px;
+            position: relative;
+        }
+        th, td {
+            border: 2px solid #b4bbc3; /* 深蓝色边框 */
+            padding: 8px;
+            text-align: left;
+        }
+         /* 第一个单元格背景色 */
+         td:first-child {
+            background-color: #d7e9f0; /* 浅蓝色 */
+
+        }
+
+        /* 第二个单元格背景色 */
+        td:nth-child(2) {
+            background-color: #c1e3f7; /* 深蓝色 */
+        }
+        </style>
+    </head>
+    <body>
+        <div class="title">
+        <h2>中国文化之夜</h2></div>
+        <div class="contain">
+            <!-- 图片区域 -->
+            <div>
+                <img src="https://pic.imgdb.cn/item/6627ae2a0ea9cb140328ea2d.jpg" alt="" style="width: 100%;height: 570px;">
+            </div>
+            <!-- 文字框 -->
+            <div class="rec">
+                <div class="box">
+                    <img src="https://pic.imgdb.cn/item/662785880ea9cb1403d911bb.png" alt=""  class="int">
+                    <p>中国文化之夜由中国驻美使馆、子午线国际中心联合主办，在华盛顿举行。</p>
+                </div>
+                <div class="box">
+                    <img src="https://pic.imgdb.cn/item/662785960ea9cb1403d92885.png" alt=""  class="int">
+                    <p>中国驻美使馆已经与子午线国际中心合作多年。每逢中国春节，双方都会联合举行庆祝活动，展示中国文化以及民俗传统。</p>
+                </div>
+                <div class="box">
+                    <img src="https://pic.imgdb.cn/item/662785a60ea9cb1403d94499.png" alt=""  class="int">
+                    <p>中国驻美使馆公使吴玺当晚在致辞中表示，加强中美人文交流将有利于两国关系的未来发展。</p>
+                </div>
+            </div>
+            <!-- 隔离区 -->
+            <div class="rec1"></div>
+
+            <!-- 图标区域 -->
+            <div class="rec3">
+                <img src="https://pic.imgdb.cn/item/662785ce0ea9cb1403d99031.png" alt="" style="height: 40px;width: 70px;">
+                <p style="color: black;top:-25px;font-size: 25px;">详情介绍</p>
+            </div>
+
+            <!-- 图片加文字区域 -->
+            <div class="word">
+                <div>
+                    <img src="https://pic.imgdb.cn/item/6627b1430ea9cb14032fb32b.jpg" alt="" style="width: 400px;height: 240px;margin-right: 3px;">
+                </div>
+                <div>
+                    <p class="second">“中国文化之夜”是一项旨在展示和推广中国文化的活动。这一活动由不同的组织或机构举办，形式和内容也各有特色。一种“中国文化之夜”是由中国驻美使馆和子午线国际中心联合主办的，活动在华盛顿举行，通过这一平台，加强中美人文交流，推动两国关系的未来发展。另一种“中国文化之夜”则是全球外交官系列活动的一部分，该平台坚持传递和尊重不同国家之间的文化，倡导和平、包容发展，弘扬丝绸之路精神，促进世界各国友好交流、合作共赢。在这一活动中，展示了中国优秀传统文化，包括香文化、传统插花、茶文化、陶瓷艺术、古琴艺术等，同时还举办多场签约仪式，推动经贸合作。还有一种“中国文化之夜”则更加注重与当地文化的融合，此外，还有以文化馆为平台举办的“中国文化馆之夜”，这样的活动通常回顾文化馆的发展历程，展示群文事业的难忘故事，打造一场中国群众文化群星荟萃的视听盛宴。</p>
+                </div>
+            </div>
+          <!-- 图标区域 -->
+          <div class="rec4">
+            <img src="https://pic.imgdb.cn/item/662785ce0ea9cb1403d99031.png" alt="" style="height: 40px;width: 70px;">
+            <p style="color: black;top:-25px;font-size: 25px;">数据展示</p>
+        </div>
+           <!-- 表格区域 -->
+        <div style="display: flex; justify-content: space-between;top: 20px; width: 100%;" class="table-container">
+            <!-- 第一个表格 -->
+            <table style="border-collapse: collapse;">
+                <tr>
+                    <td style="padding: 5px;">中文名</td>
+                    <td style="padding: 5px;">中国文化之夜</td>
+                </tr>
+                <tr>
+                    <td style="padding: 5px;">外文名</td>
+                    <td style="padding: 5px;">Night of Chinese Culture</td>
+                </tr>
+                <tr>
+                    <td style="padding: 5px;">开始时间</td>
+                    <td style="padding: 5px;">2015年</td>
+                </tr>
+                <tr>
+                    <td style="padding: 5px;">主办单位</td>
+                    <td style="padding: 5px;">中国驻美使馆、子午线国际中心</td>
+                </tr>
+            </table>
+            <!-- 第二个表格 -->
+            <table style="border-collapse: collapse;">
+                <tr>
+                    <td style="padding: 5px;width: 20%;">举办地点</td>
+                    <td style="padding: 5px;">华盛顿等</td>
+                </tr>
+                <tr>
+                    <td style="padding: 5px;">活动报道</td>
+                    <td style="padding: 5px;">2022年4月14日，开罗中国文化中心举办了斋月“中国文化之夜”</td>
+                </tr>
+                <tr>
+                    <td style="padding: 5px;">官网</td>
+                    <td style="padding: 5px;">全球外交官中国文化之夜组委会</td>
+                </tr>
+                <tr>
+                    <td style="padding: 5px;">活动内容</td>
+                    <td style="padding: 5px;">美食、皮影、中国文化以及民俗传统</td>
+                </tr>
+            </table>
+        </div>
+        </div>
+    </body>
+</html>

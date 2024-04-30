@@ -1,0 +1,381 @@
+.project_bg{
+    background-image: url("/static/img/bg_project.jpg");
+    background-size: cover; /* 让背景图片完全覆盖整个容器 */
+    background-repeat: no-repeat; /* 禁止背景图片重复 */
+    background-position: center; /* 居中显示背景图片 */
+    display: flex;
+    align-items: flex-start;
+}
+.project3D_bg{
+    background-color: #facfa9;
+    background-size: cover; /* 让背景图片完全覆盖整个容器 */
+    display: flex;
+    align-items: flex-start;
+}
+#check{
+    width: 20%;
+    margin: 10% 0 2% 1%;
+}
+.checkInfo{
+    font-size: 30px;
+    margin-bottom: 10px;
+    text-align: center;
+    font-family: STXinwei;
+}
+#check input{
+    margin: 40px 0 70px 0;
+}
+#check input[type="checkbox"]{
+    transform: scale(1.5); /* 调整多选框的大小 */
+    margin-right: 10px; /* 增加多选框之间的间距 */
+}
+#check p {
+    font-size: 18px; /* 调整多选框对应文字的大小 */
+}
+.custom-line {
+            width: 100%; /* 横线宽度与页面相等 */
+            height: 5px; /* 横线高度 */
+            background-color: #a16223; /* 自定义颜色 */
+            position: absolute; /* 固定在页面底部 */
+            top: 105px; /* 距离页面底部的距离 */
+            left: 0; /* 距离页面左侧的距离 */
+            z-index: 2; /* 确保在最顶层显示 */
+        }
+* {
+    margin: 0;
+    padding: 0;
+}
+#graph {
+    width: 70%;
+    height: 1000px;
+    margin-left: 50px;
+}
+.head{
+    justify-content: space-between;
+    color: rgb(23, 21, 21);
+    align-items: center;
+    background-image: url(/static/img/tt7.png);
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+    height:90px;
+    padding-left: 1000px;
+    padding-bottom: 16px;
+    z-index: 3;
+}
+.nav {
+    text-decoration: none;
+    float:right;
+    margin: 2px;
+    color: #090909;
+    top:15px;
+    font-size: 30px;
+    padding: 2px;
+    margin-right: 100px;
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    height:30px;
+    margin-top: 8px;
+}
+.btn{
+	 background-color:#f09692;
+	 color:white;
+	 width: 70px;
+	 height: 45px;
+	 border:0;
+	 font-size: 16px;
+	 box-sizing: content-box;
+     border-radius: 5px;
+     margin:5px;
+     }
+.btn:hover{
+	 background-color: #a54b4a;
+}
+input{
+ border: 1px solid #ccc;
+                padding: 7px 0px;
+                height:45px;
+                border-radius: 3px;
+                margin-left:200px;
+                padding-left:5px;
+                font-size:19px;
+                -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+                box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+                -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+                -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+                transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s
+            }
+input:focus{
+            border-color: #66afe9;
+            outline: 0;
+            -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+             box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6)
+}
+.btn1{
+background-color:#f3d9d8;
+	 color:black;
+	 width: 140px;
+	 height: 58px;
+	 border:0;
+	 font-size: 16px;
+	 box-sizing: content-box;
+     border-radius: 5px;
+     margin:5px;
+}
+#chatIcon {
+    position: fixed;
+    bottom: 50px; /* 调整距离底部的距离 */
+    right: 100px; /* 调整距离右侧的距离 */
+    cursor: pointer;
+    z-index: 1000; /* 设置较高的层级 */
+}
+
+
+#chatBox {
+    margin: 70px 0 0 20px;
+    padding-left: 20px;
+    border-radius: 5px;
+    height:70%;
+    width: 35%;
+    overflow: auto; /* 允许滚动 */
+    background-image: url("/static/img/chatbg2.png");
+}
+
+.conversation {
+    display: flex;
+    flex-direction: column; /* 设置对话框内元素垂直排列 */
+}
+
+.message {
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+    width: 60%; /* 设置消息框的宽度 */
+}
+
+.message.right {
+    align-self: flex-end; /* 将右侧消息框靠右显示 */
+    /*background-color: #f0f0f0; !* 右侧消息框背景色 *!*/
+    display: flex;
+    /*position: relative;*/
+}
+
+.message.left {
+    /*background-color: #e0e0e0; !* 左侧消息框背景色 *!*/
+    display: flex;
+    margin-left: -13px;
+}
+
+.message {
+    position: relative; /* 设置相对定位 */
+}
+
+.avatar{
+    width: 60px;
+}
+#submitButton {
+    position: absolute; /* 设置绝对定位 */
+    bottom: 0; /* 距离父元素底部的距离为0 */
+    right: -200px; /* 距离父元素右侧的距离为0 */
+    width: 100px;
+    line-height: 60px;
+    text-align: center;
+    font-size: 18px;
+    background-color: darkgrey;
+    border-radius: 10px;
+}
+#submitButton:hover{
+	 background-color: grey;
+}
+
+/*!
+ * LABELAUTY jQuery Plugin Styles
+ *
+ * @file: jquery-labelauty.css
+ * @author: Francisco Neves (@fntneves)
+ * @site: www.francisconeves.com
+ * @license: MIT License
+ */
+
+/* Prevent text and blocks selection */
+input.labelauty + label ::selection { background-color: rgba(255, 255, 255, 0); }
+input.labelauty + label ::-moz-selection { background-color: rgba(255, 255, 255, 0); }
+
+/* Hide original checkboxes. They are ugly! */
+input.labelauty { display: none !important; }
+
+/*
+ * Let's style the input
+ * Feel free to work with it as you wish!
+ */
+input.labelauty + label
+{
+	display: table;
+	font-size: 18px;
+	padding: 10px;
+	background-color: #efefef;
+	cursor: pointer;
+	border-radius: 3px 3px 3px 3px;
+	-moz-border-radius: 3px 3px 3px 3px;
+	-webkit-border-radius: 3px 3px 3px 3px;
+
+	transition: background-color 0.25s;
+	-moz-transition: background-color 0.25s;
+	-webkit-transition: background-color 0.25s;
+	-o-transition: background-color 0.25s;
+
+	-moz-user-select: none;
+	-khtml-user-select: none;
+	-webkit-user-select: none;
+	-o-user-select: none;
+}
+
+/* Stylish text inside label */
+
+input.labelauty + label > span.labelauty-unchecked,
+input.labelauty + label > span.labelauty-checked
+{
+	display: inline-block;
+	line-height: 16px;
+	vertical-align: bottom;
+}
+
+/* Stylish icons inside label */
+
+input.labelauty + label > span.labelauty-unchecked-image,
+input.labelauty + label > span.labelauty-checked-image
+{
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	vertical-align: bottom;
+	background-repeat: no-repeat;
+	background-position: left center;
+
+	transition: background-image 0.5s linear;
+	-moz-transition: background-image 0.5s linear;
+	-webkit-transition: background-image 0.5s linear;
+	-o-transition: background-image 0.5s linear;
+}
+
+/* When there's a label, add a little margin to the left */
+input.labelauty + label > span.labelauty-unchecked-image + span.labelauty-unchecked,
+input.labelauty + label > span.labelauty-checked-image + span.labelauty-checked
+{
+	margin-left: 6px;
+}
+
+/* When not Checked */
+input.labelauty:not(:checked):not([disabled]) + label:hover
+{
+	background-color: #eaeaea;
+	color: #a7a7a7;
+}
+input.labelauty:not(:checked) + label > span.labelauty-checked-image
+{
+	display: none;
+}
+
+input.labelauty:not(:checked) + label > span.labelauty-checked
+{
+	display: none;
+}
+
+/* When Checked */
+input.labelauty:checked + label
+{
+	background-color: #3498db;
+	color: #ffffff;
+}
+
+input.labelauty:checked:not([disabled]) + label:hover
+{
+	background-color: #72c5fd;
+}
+input.labelauty:checked + label > span.labelauty-unchecked-image
+{
+	display: none;
+}
+
+input.labelauty:checked + label > span.labelauty-unchecked
+{
+	display: none;
+}
+
+input.labelauty:checked + label > span.labelauty-checked
+{
+	display: inline-block;
+}
+
+input.labelauty.no-label:checked + label > span.labelauty-checked
+{
+	display: block;
+}
+
+/* When Disabled */
+input.labelauty[disabled] + label
+{
+	opacity: 0.5;
+}
+
+/* Add a background to (un)checked images */
+input.labelauty + label > span.labelauty-unchecked-image
+{
+	background-image: url( https://pic.imgdb.cn/item/6625c7b70ea9cb1403cb9c8c.png );
+}
+
+input.labelauty + label > span.labelauty-checked-image
+{
+	background-image: url( https://pic.imgdb.cn/item/6625c7b80ea9cb1403cb9cdd.png );
+}
+
+/* 下拉按钮 */
+.dropbtn {
+  background-color: transparent;
+  padding: 16px;
+  font-size: 45px;
+  border: none;
+    font-weight: 700;
+}
+
+/* 容器 <div> - 需要定位下拉内容 */
+.dropdown {
+  position: relative;
+  display: inline-block;
+    margin-right: 40px;
+    margin-top: -13px;
+}
+.dropdown a{
+    text-decoration: none;
+    color: #1d1a1a;
+}
+
+/* 下拉内容（默认隐藏）*/
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #F0B27A;
+  min-width: 100%;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* 下拉列表中的链接 */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+    font-size: 30px;
+}
+
+/* 更改悬停时下拉链接的颜色 */
+.dropdown-content a:hover {background-color: #ddd;}
+
+/* 悬停时显示下拉菜单 */
+.dropdown:hover .dropdown-content {display: block;}
+
+/* 显示下拉内容时更改下拉按钮的背景颜色 */
+.dropdown:hover .dropbtn {background-color: #EB984E;}

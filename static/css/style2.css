@@ -1,0 +1,101 @@
+/* styles.css */
+/* 下拉按钮 */
+.dropbtn {
+  background-color: transparent;
+  padding: 16px;
+  font-size: 35px;
+  border: none;
+    font-weight: 700;
+}
+
+/* 容器 <div> - 需要定位下拉内容 */
+.dropdown {
+  position: relative;
+  display: inline-block;
+    margin-right: 40px;
+    margin-top: -10px;
+}
+.dropdown a{
+    text-decoration: none;
+    color: #1d1a1a;
+}
+
+/* 下拉内容（默认隐藏）*/
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #F0B27A;
+  min-width: 100%;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* 下拉列表中的链接 */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+    font-size: 25px;
+}
+
+/* 更改悬停时下拉链接的颜色 */
+.dropdown-content a:hover {background-color: #ddd;}
+
+/* 悬停时显示下拉菜单 */
+.dropdown:hover .dropdown-content {display: block;}
+
+/* 显示下拉内容时更改下拉按钮的背景颜色 */
+.dropdown:hover .dropbtn {background-color: #EB984E;}
+/* 设置图片大小 */
+.main-image {
+    width: 35%;
+    height: 500px; /* 保持宽高比例，自动计算高度 */
+    margin-top: 140px; /* 设置图片离顶端的间隔为50px */
+    margin-left: 100px;
+    box-shadow: 15px 10px 10px rgba(0, 0, 0, 0.632); /* 水平偏移, 垂直偏移, 模糊半径, 颜色 */
+}
+
+/* 设置图片位置在页面左边 */
+.main-image.left {
+    float: left; /* 让图片浮动到左侧 */
+    
+}
+.image-container {
+    float: left;
+    margin-top: 0px;
+    margin-bottom: 20px;
+   
+}
+
+/* 每张图片的样式 */
+.image1 {
+    width: 250px;
+    height: 200px;
+    margin-left: 20px;
+    border-radius: 50%; /* 让图片变成圆形 */
+    overflow: hidden; /* 隐藏超出边界的部分，确保整个图片都是圆形 */
+}
+
+.image2 {
+    width: 250px;
+    height: 200px;
+   
+    border-radius: 50%; /* 让图片变成圆形 */
+    overflow: hidden; /* 隐藏超出边界的部分，确保整个图片都是圆形 */
+}
+
+.image3 {
+    width: 250px;
+    height: 200px;
+    
+    border-radius: 50%; /* 让图片变成圆形 */
+    overflow: hidden; /* 隐藏超出边界的部分，确保整个图片都是圆形 */
+}
+.image4 {
+    width: 250px;
+    height: 200px;
+   
+    border-radius: 50%; /* 让图片变成圆形 */
+    overflow: hidden; /* 隐藏超出边界的部分，确保整个图片都是圆形 */
+}

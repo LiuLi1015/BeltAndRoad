@@ -1,0 +1,226 @@
+* {
+    margin: 0;
+    padding: 0;
+}    
+.head{
+    justify-content: space-between;
+    color: rgb(23, 21, 21);
+    align-items: center;
+    background-image: url(../img/tt7.png);
+    background-size: 100% auto;
+    background-repeat: no-repeat; 
+    background-position: center; 
+    position: relative;
+    padding-bottom: 16px;
+}
+/* 下拉按钮 */
+.dropbtn {
+  background-color: transparent;
+  padding: 16px;
+  font-size: 35px;
+  border: none;
+    font-weight: 700;
+}
+
+/* 容器 <div> - 需要定位下拉内容 */
+.dropdown {
+  position: relative;
+  display: inline-block;
+    margin-right: 40px;
+    margin-top: -10px;
+}
+.dropdown a{
+    text-decoration: none;
+    color: #1d1a1a;
+}
+
+/* 下拉内容（默认隐藏）*/
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #F0B27A;
+  min-width: 100%;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* 下拉列表中的链接 */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+    font-size: 25px;
+}
+
+/* 更改悬停时下拉链接的颜色 */
+.dropdown-content a:hover {background-color: #ddd;}
+
+/* 悬停时显示下拉菜单 */
+.dropdown:hover .dropdown-content {display: block;}
+
+/* 显示下拉内容时更改下拉按钮的背景颜色 */
+.dropdown:hover .dropbtn {background-color: #EB984E;}
+
+.container{
+    position: absolute;
+    width: 100%;
+    display: flex;
+    top:90px;
+    height:550px;
+    background-color: #d7d1cc;
+    bottom: 70px;
+
+}
+.left-group, .right-group{
+    width: 400px;
+    top:195px;
+    height:500px;
+    text-align: center;
+    font-size: 24px;
+}
+.mid-group{
+    flex: 1;
+    height:500px;
+    top:35px;
+    text-align: center;
+    width:820px;
+    margin-top: 17px;
+}
+
+.x-title-block{
+    margin-top:570px;
+    text-align: center;
+    font-size: 28px;
+}
+.x-title-block>p{
+    position: relative;
+    display: inline-block;
+    font-size: 26px;
+    color: black;
+    padding: 0 2rem;
+    vertical-align: middle;
+}
+.x-title-block>p:before{
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-image: url("../img/png7.png");
+    background-repeat: no-repeat;
+    background-position: left top;
+    width: 22px;
+    height: 33px;
+    vertical-align: middle;
+}
+.x-title-block>p:after{
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    background-image: url("../img/png7.png");
+    background-repeat: no-repeat;
+    width: 22px;
+    height: 33px;
+    background-position: right top;
+    vertical-align: middle;
+}
+.j-list-block{
+    width: 100%;
+    min-height: 10rem;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    margin: 1rem 0 5rem 0 ;
+    flex-wrap: wrap;
+    height:500px;
+}
+.j-list-block>li{
+    display: flex;
+    flex-direction: column;
+    padding:1rem 0;
+    width: 100%;
+    margin: 1rem 1rem;
+    background: rgb(203, 192, 177);
+
+}
+.j-list-block>li>div:nth-child(1){
+    position: relative;
+    padding: 22px 0 21px;
+    color: #fff;
+    overflow: hidden;
+}
+.j-list-block>li>div:nth-child(1)>span{
+    position: relative;
+    float: left;
+    padding: 1px 12px 1px 15px;
+    background-color: #a43531;
+}
+.j-list-block>li>div:nth-child(2){
+    flex: 3;
+    padding: 1rem 2rem;
+}
+.j-list-block>li>div:nth-child(2)>p{
+    padding: 1rem 0;
+    color: gray;
+}
+.j-list-block>li>div:nth-child(1):before{
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    border-top: 1px solid #d8d8d8;
+}
+.j-list-block>li>div:nth-child(1):after{
+    content: '';
+    position: relative;
+    float: left;
+    width: 32px;
+    height: 43px;
+    background: url(../img/png22.png) no-repeat;
+
+}
+.people-block {
+    display: flex;
+    overflow: hidden;
+    top:870px;
+}
+
+.people-image {
+    width: 355px; /* 设置图片宽度 */
+    height: 270px; /* 设置图片高度 */
+    margin: 20px; /* 设置图片间距 */
+    animation: slideIn 12s forwards; /* 应用动画效果 */
+    transition: opacity 0.5s; 
+    opacity: 0; 
+}
+.people-image:hover {
+    transform: scale(6); 
+    box-shadow: 0 0 30px rgba(7, 0, 0, 0.3); 
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateX(-100%); /* 初始位置在左侧隐藏 */
+    }
+    100% {
+        transform: translateX(0); /* 最终位置完全显示 */
+    }
+}
+.bg{
+    /*background-image: url(./images/bg_image.png);*/
+    background-color: rgb(212, 152, 99);
+    
+    background-size: cover; /* 让背景图片完全覆盖整个容器 */
+    background-repeat: no-repeat; /* 禁止背景图片重复 */
+    background-position: center; /* 居中显示背景图片 */
+    
+}
+.mid-group {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* 添加阴影效果 */
+    padding: 7px; /* 可选：添加内边距以增加阴影效果的空间 */
+}
+
+

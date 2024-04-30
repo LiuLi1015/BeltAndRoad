@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>工程项目</title>
+        <style>
+            body{
+                margin: 0;
+                padding: 10px;
+            }
+            .title{
+                width: 100%;
+                height: 120px;
+                background-color: rgb(221, 233, 245);
+                margin-top: -20px;
+                display: flex;
+                justify-content: center;
+            }
+            h2{
+                text-align: center;
+                font-size: 70px;
+                font-family: STXinwei;
+                color: rgb(8, 8, 8);
+                margin-top: 30px;
+            }
+            .rec {
+                display: flex;
+                justify-content: space-around;
+                margin-top: -130px; /* 设置与顶部的距离 */
+            }
+            .word{
+                display: flex;
+                justify-content: space-around;
+                top:40px;
+                position: relative;
+                background-color: rgb(235, 238, 241);
+                border-color: #fdfbfb;
+            }
+            .rec3{
+                display: flex;
+                top:35px;
+                position: relative;
+                text-align: left;
+                width: 100%;
+                height:40px;
+            }
+             .rec4{
+                display: flex;
+                top:35px;
+                position: relative;
+                text-align: left;
+                width: 100%;
+                height:40px;
+                 margin-top: 20px;
+            }
+
+            .box {
+                width: 15%;
+                padding: 40px;
+                height:180px;
+                background-color: #93c7da;
+                border: 1px solid #ccc;
+                border-radius: 10px;
+            }
+            .int{
+                width: 45px;
+                height: 45px;
+                top:-40px;
+                position: relative;
+                max-width: 100%;
+                max-height: 100%;
+                display: block;
+                margin: 0 auto;
+            }
+            p{
+                font-size: 24px;
+                font-family: Arial, Helvetica, sans-serif;
+                font-weight: bold;
+                top:-50px;
+                position: relative;
+                color: rgb(255, 255, 255);
+                text-align: left;
+            }
+            .rec1{
+                width: 100%;
+                height:2px;
+                top:30px;
+                position: relative;
+                background-color: rgb(251, 242, 242);
+            }
+            .second{
+                font-size: 24px;
+                font-family: Arial, Helvetica, sans-serif;
+                font-weight: bold;
+                top:5px;
+                position: relative;
+                color: rgb(95, 94, 94);
+            }
+           /* 表格样式 */
+           .table-container {
+            border-radius: 10px; /* 圆角 */
+            box-shadow: 1px 1px 10px rgba(76, 240, 252, 0.1); /* 阴影 */
+            text-align: center;
+            padding-bottom: 70px;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            height: 300px;
+            text-align: center; /* 居中对齐 */
+            font-size: 25px;
+            top: 45px;
+            position: relative;
+        }
+        th, td {
+            border: 2px solid #b4bbc3; /* 深蓝色边框 */
+            padding: 8px;
+            text-align: left;
+        }
+         /* 第一个单元格背景色 */
+         td:first-child {
+            background-color: #d7e9f0; /* 浅蓝色 */
+
+        }
+
+        /* 第二个单元格背景色 */
+        td:nth-child(2) {
+            background-color: #c1e3f7; /* 深蓝色 */
+        }
+        </style>
+    </head>
+    <body>
+        <div class="title">
+        <h2>中俄原油管道</h2></div>
+        <div class="contain">
+            <!-- 图片区域 -->
+            <div>
+                <img src="https://pic.imgdb.cn/item/6627a3190ea9cb140313c0c2.jpg" alt="" style="width: 100%;height: 550px;">
+            </div>
+            <!-- 文字框 -->
+            <div class="rec">
+                <div class="box">
+                    <img src="https://pic.imgdb.cn/item/662785880ea9cb1403d911bb.png" alt=""  class="int">
+                    <p>中俄原油管道起自俄罗斯远东管道斯科沃罗季诺分输站，经中国黑龙江省和内蒙古自治区13个市、县、区，止于大庆末站。</p>
+                </div>
+                <div class="box">
+                    <img src="https://pic.imgdb.cn/item/662785960ea9cb1403d92885.png" alt=""  class="int">
+                    <p>中俄原油管道2010年11月1日进入试运行阶段。2012年9月，中俄石油管道谈判历经15年，最终签约。</p>
+                </div>
+                <div class="box">
+                    <img src="https://pic.imgdb.cn/item/662785a60ea9cb1403d94499.png" alt=""  class="int">
+                    <p>管道全长999.04公里，俄罗斯境内72公里，中国境内927.04公里。按照双方协定，俄罗斯将通过中俄原油管道每年向中国供应1500万吨原油，合同期20年。</p>
+                </div>
+            </div>
+            <!-- 隔离区 -->
+            <div class="rec1"></div>
+
+            <!-- 图标区域 -->
+            <div class="rec3">
+                <img src="https://pic.imgdb.cn/item/662785ce0ea9cb1403d99031.png" alt="" style="height: 40px;width: 70px;">
+                <p style="color: black;top:-25px;font-size: 25px;">详情介绍</p>
+            </div>
+
+            <!-- 图片加文字区域 -->
+            <div class="word">
+                <div>
+                    <img src="https://pic.imgdb.cn/item/6627a3760ea9cb1403146b39.jpg" alt="" style="width: 400px;height: 210px;margin-right: 3px;">
+                </div>
+                <div>
+                    <p class="second">中俄石油管道是一项重要的能源合作项目，起始于俄罗斯远东管道斯科沃罗季诺分输站，穿越中国黑龙江省和内蒙古自治区，最终抵达大庆末站。整条管道全长999.04公里，其中俄罗斯境内占72公里，中国境内则长达927.04公里。按照双方的协定，俄罗斯每年将通过这条管道向中国供应1500万吨原油，合同期限为20年。这一项目在历经多年的谈判后，终于在2009年2月17日成功签约，并在2010年11月1日进入了试运行阶段。此外，中俄石油管道还是俄罗斯“东西伯利亚至太平洋”石油管道的一条重要支线，这显示出中俄两国在能源领域的紧密合作。这条管道的建设不仅有助于俄罗斯能源的出口多元化，也为中国提供了稳定的原油供应来源，进一步促进了中俄两国的经济合作与发展。</p>
+                </div>
+            </div>
+          <!-- 图标区域 -->
+          <div class="rec4">
+            <img src="https://pic.imgdb.cn/item/662785ce0ea9cb1403d99031.png" alt="" style="height: 40px;width: 70px;">
+            <p style="color: black;top:-25px;font-size: 25px;">数据展示</p>
+        </div>
+           <!-- 表格区域 -->
+        <div style="display: flex; justify-content: space-between;top: 20px; width: 100%;" class="table-container">
+            <!-- 第一个表格 -->
+            <table style="border-collapse: collapse;">
+                <tr>
+                    <td style="padding: 5px;">中文名</td>
+                    <td style="padding: 5px;">中俄石油管道</td>
+                </tr>
+                <tr>
+                    <td style="padding: 5px;">外文名</td>
+                    <td style="padding: 5px;">ChinaNationalPetroleumCorporation</td>
+                </tr>
+                <tr>
+                    <td style="padding: 5px;">始建时间</td>
+                    <td style="padding: 5px;">2009年8月28日</td>
+                </tr>
+                <tr>
+                    <td style="padding: 5px;">投用时间</td>
+                    <td style="padding: 5px;">2010年11月1日</td>
+                </tr>
+            </table>
+            <!-- 第二个表格 -->
+            <table style="border-collapse: collapse;">
+                <tr>
+                    <td style="padding: 5px;">所属地区</td>
+                    <td style="padding: 5px;">中国、俄罗斯</td>
+                </tr>
+                <tr>
+                    <td style="padding: 5px;">类型</td>
+                    <td style="padding: 5px;">管道</td>
+                </tr>
+                <tr>
+                    <td style="padding: 5px;">长度</td>
+                    <td style="padding: 5px;">4770公里</td>
+                </tr>
+                <tr>
+                    <td style="padding: 5px;">中国境内支线</td>
+                    <td style="padding: 5px;">965千米</td>
+                </tr>
+            </table>
+        </div>
+        </div>
+    </body>
+</html>

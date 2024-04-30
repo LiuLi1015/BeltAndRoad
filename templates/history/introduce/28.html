@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="/static/js/jquery-3.4.1.min.js"></script>
+    <script src="/static/js/jquery-1.9.1.js"></script>
+    <link rel="stylesheet" href="/static/css/zhangqian.css" />
+    <title>历史</title>
+ 
+</head>
+<body>
+ <div class="bg">
+      <div class="content">
+           <div class="head" style="height: 68px; padding-left: 1100px">
+            <div class="dropdown">
+              <button class="dropbtn"><a href="/history">丝路纪元</a></button>
+              <div class="dropdown-content">
+                <a href="/history">发展脉络</a>
+                <a href="/api1">趣味答题</a>
+              </div>
+        </div>
+         <div class="dropdown">
+              <button class="dropbtn"><a href="/all">伙伴风采</a></button>
+              <div class="dropdown-content">
+                <a href="/all">时空演化</a>
+                <a href="/photos">联绸盛图</a>
+              </div>
+        </div>
+        <div class="dropdown">
+              <button class="dropbtn"><a href="/eco">数绘经济</a></button>
+              <div class="dropdown-content">
+                <a href="/eco">经济数据</a>
+                <a href="/second">伙伴经济</a>
+              </div>
+        </div>
+        <div class="dropdown">
+              <button class="dropbtn"><a href="/project">工程汇聚</a></button>
+              <div class="dropdown-content">
+                  <a href="/project">项目解析</a>
+                  <a href="/project3D">3D图谱</a>
+                  <a href="/question">智能问答</a>
+              </div>
+        </div>
+           </div>
+           <div class="container">
+                <div class="left-group">
+                    <ul class="j-list-block">
+                        <li>
+                            <div><span>第二届“一带一路”国际合作高峰论坛举行
+                            </span></div>
+                            <div><span>2019年4月25日
+                            </span>
+                                <p>古丝绸之路凝聚了和平合作、开放包容、互学互鉴、互利共赢的平等合作精神，为促进互联互通和世界经济增长作出重要贡献。我们期待通过“一带一路”倡议及其他合作框架与倡议，重振古丝绸之路精神。
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="mid-group">
+                    <video width="1100px" height="500px" controls>
+                        <source src="../../../static/videos/28.mp4" type="video/mp4">
+                        您的浏览器不支持视频播放。
+                      </video>
+                </div>
+                <div class="right-group">
+                    <ul class="j-list-block">
+                        <li>
+                            <div><span>第二届“一带一路”国际合作高峰论坛举行 
+                            </span></div>
+                            <div><span>2019年4月25日</span>
+                                <p>展望未来，我们将高质量共建“一带一路”，通过促进政策沟通、设施联通、贸易畅通、资金融通和民心相通，加强各方互联互通，深化务实合作，增进各国人民福祉。在此方面，我们期待合作伙伴作出更多努力。
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+           </div>
+
+           <div class="x-title-block">
+            <p style="color: aliceblue;">第二十八阶段--“一带一路”建设走入国际视野</p>
+        </div>
+
+           <div class="people-block">
+            <a href=https://www.gov.cn/xinwen/2019-04/27/content_5386911.htm><img src="../../../static/img/28-1.png" class="people-image" alt="Image 1"></a>
+            <a href=https://www.gov.cn/xinwen/2019-04/27/content_5386911.htm><img src="../../../static/img/28-2.png" class="people-image" alt="Image 2"></a>
+            <a href=https://www.gov.cn/xinwen/2019-04/27/content_5386911.htm><img src="../../../static/img/28-3.png" class="people-image" alt="Image 3"></a>
+            <a href=https://www.gov.cn/xinwen/2019-04/27/content_5386911.htm><img src="../../../static/img/28-4.png" class="people-image" alt="Image 4"></a>
+            <a href=https://www.gov.cn/xinwen/2019-04/27/content_5386911.htm><img src="../../../static/img/28-5.png" class="people-image" alt="Image 5"></a>
+           </div>
+      </div>
+    </div>
+    <script>
+        $(function () {
+    var images = document.getElementsByClassName('people-image');
+    var delay = 1200; // 延迟时间，单位为毫秒
+    
+    for (var i = 0; i < images.length; i++) {
+        images[i].style.opacity = '0'; // 设置初始透明度为0
+    }
+    
+    for (var i = 0; i < images.length; i++) {
+        (function(i) {
+            setTimeout(function() {
+                images[i].style.display = 'block'; // 先显示图片
+                setTimeout(function() {
+                    images[i].style.opacity = '1'; // 再将透明度逐渐变为1
+                }, 50); // 添加一个小延迟，确保浏览器能够正确应用过渡效果
+            }, i * delay);
+        })(i);
+    }
+});
+
+    </script>
+</body>
+</html>

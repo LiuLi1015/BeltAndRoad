@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>丝路纪元</title>
+    <link href="/static/css/style.css" rel="stylesheet" />
+    <style>
+        body {
+            background-color: #a16223;
+            margin: 0px;
+            padding: 0;
+            overflow-x: hidden; /* 隐藏水平滚动条 */
+            font-family: Arial, sans-serif; /* 可选：设置字体 */
+            position: relative; /* 为了绝对定位内部元素 */
+        }
+        .new-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; /* 让图片按照原始尺寸显示 */
+    height: auto; /* 让图片按照原始尺寸显示 */
+    max-width: 100%; /* 设置图片最大宽度为页面宽度 */
+    max-height: 100%; /* 设置图片最大高度为页面高度 */
+    z-index: 2;
+}
+.text-container {
+    position: absolute;
+    z-index: 3; /* 确保文本在图片上方显示 */
+    left: 1000px;
+}
+
+
+/* 设置文字的样式和位置 */
+.text1, .text2, .text3, .text4 {
+    position: absolute;
+    text-decoration: none;
+    float: right;
+    margin: 2px;
+    color: #090909;
+    font-size: 30px;
+    padding: 2px;
+    margin-right: 9px;
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    width:150px;
+    height:30px;
+    /* 根据需要调整位置 */
+
+}
+
+.text1 {
+    top: 10px;
+    left: 850px;
+}
+
+.text2 {
+    top: 10px;
+    left: 1000px;
+}
+
+.text3 {
+    top: 10px;
+    left: 1200px;
+}
+
+.text4 {
+    top: 10px;
+    left: 1400px;
+}
+
+
+        .long-image-container {
+            position: relative;
+
+    top: 110px; /* 将长图容器下移50像素 */
+        }
+
+        img.long-image {
+            top: 200px;
+            width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+
+        }
+
+        .image-container {
+            position: absolute;
+            top: 0px; /* 调整相对于长图的位置 */
+            left: 20px; /* 调整相对于长图的位置 */
+        }
+
+        .image1,
+        .image2,
+         .image3,
+         .image4,
+         .image5,
+         .image6,
+         .image7,
+         .image8,
+         .image9,
+         .image10,
+         .image11,
+         .image12,
+         .image13,
+         .image14,
+         .image15,
+         .image16,
+         .image17,
+         .image18,
+         .image19,
+         .image20,
+         .image21,
+         .image22,
+         .image23,
+         .image24,
+         .image25,
+         .image26,
+         .image27,
+         .image28,
+         .image29,
+         .image30,
+         .image31{
+            position: absolute;
+            /* 调整相对于长图的位置 */
+            top: -20px;
+            left: 280px;
+            width: 150px; /* 图片的宽度 */
+            height: auto;
+            cursor: pointer;
+        }
+
+        .image2 {
+            /* 调整相对于长图的位置 */
+            top: 65px;
+            left: 900px;
+            width: 100px; /* 图片的宽度 */
+            height: auto;
+        }
+        .image3 {
+            /* 调整相对于长图的位置 */
+            top: 200px;
+            left: 240px;
+            width: 200px; /* 图片的宽度 */
+            height: 200px;
+        }
+        .image4 {
+            /* 调整相对于长图的位置 */
+            top: 320px;
+            left: 890px;
+            width: 150px; /* 图片的宽度 */
+            height: auto;
+        }
+        .image5 {
+            /* 调整相对于长图的位置 */
+            top: 620px;
+            left: 780px;
+            width: 150px; /* 图片的宽度 */
+            height: auto;
+        }
+        .image6 {
+            /* 调整相对于长图的位置 */
+            top: 790px;
+            left: 1150px;
+            width: 200px; /* 图片的宽度 */
+            height: auto;
+        }
+        .image7 {
+            /* 调整相对于长图的位置 */
+            top: 820px;
+            left: 640px;
+            width: 150px; /* 图片的宽度 */
+            height: auto;
+        }
+        .image8 {
+            /* 调整相对于长图的位置 */
+            top: 1170px;
+            left: 450px;
+            width: 120px; /* 图片的宽度 */
+            height: auto;
+        }
+        .image9 {
+            /* 调整相对于长图的位置 */
+            top: 1400px;
+            left: 400px;
+            width: 120px; /* 图片的宽度 */
+            height: auto;
+        }
+        .image10 {
+            /* 调整相对于长图的位置 */
+            top: 1400px;
+            left: 1100px;
+            width: 120px; /* 图片的宽度 */
+            height: auto;
+        }
+        .image11 {
+            /* 调整相对于长图的位置 */
+             top: 1680px;
+            left: 600px;
+            width: 120px; /* 图片的宽度 */
+            height: auto;
+        }
+        .image12 {
+            /* 调整相对于长图的位置 */
+            top: 1620px;
+            left: 1310px;
+            width: 180px; /* 图片的宽度 */
+            height: auto;
+        }
+        .image13 {
+            /* 调整相对于长图的位置 */
+             top: 2100px;
+            left: 360px;
+            width: 180px; /* 图片的宽度 */
+            height: auto;
+        }
+        .image14 {
+            /* 调整相对于长图的位置 */
+            top: 2030px;
+            left: 800px;
+            width: 200px; /* 图片的宽度 */
+            height: auto;
+        }
+        .image15 {
+            /* 调整相对于长图的位置 */
+            top: 2320px;
+            left: 900px;
+            width: 180px; /* 图片的宽度 */
+            height: auto;
+        }
+        .image16 {
+            /* 调整相对于长图的位置 */
+            top: 2450px;
+            left: 550px;
+            width: 180px; /* 图片的宽度 */
+            height: auto;
+        }
+        .image17 {
+            /* 调整相对于长图的位置 */
+            top: 2700px;
+            left: 930px;
+            width: 120px; /* 图片的宽度 */
+            height: auto;
+        }
+        .image18 {
+            /* 调整相对于长图的位置 */
+            top: 3050px;
+            left: 550px;
+            width: 150px; /* 图片的宽度 */
+            height: auto;
+        }
+        .image19 {
+            /* 调整相对于长图的位置 */
+            top: 3410px;
+            left: 590px;
+            width: 150px; /* 图片的宽度 */
+            height: auto;
+        }
+        .image20 {
+            /* 调整相对于长图的位置 */
+            top: 3400px;
+            left: 1230px;
+            width: 150px; /* 图片的宽度 */
+            height: auto;
+        }
+        .image21 {
+            /* 调整相对于长图的位置 */
+            top: 3710px;
+            left: 310px;
+            width: 180px; /* 图片的宽度 */
+            height: auto;
+        }
+        .image22 {
+            /* 调整相对于长图的位置 */
+            top: 3860px;
+            left: 1100px;
+            width: 170px; /* 图片的宽度 */
+            height: auto;
+        }
+        .image23 {
+            /* 调整相对于长图的位置 */
+            top: 4310px;
+            left: 300px;
+            width: 220px; /* 图片的宽度 */
+            height: auto;
+        }
+        .image24 {
+            /* 调整相对于长图的位置 */
+            top: 4280px;
+            left: 720px;
+            width: 160px; /* 图片的宽度 */
+            height: auto;
+        }
+        .image25 {
+            /* 调整相对于长图的位置 */
+            top: 4650px;
+            left: 960px;
+            width: 130px; /* 图片的宽度 */
+            height: auto;
+        }
+        .image26 {
+            /* 调整相对于长图的位置 */
+            top: 4910px;
+            left: 650px;
+            width: 140px; /* 图片的宽度 */
+            height: auto;
+        }
+        .image27 {
+            /* 调整相对于长图的位置 */
+            top: 5190px;
+            left: 380px;
+            width: 160px; /* 图片的宽度 */
+            height: auto;
+        }
+
+        .image28 {
+            /* 调整相对于长图的位置 */
+            top: 5270px;
+            left: 1100px;
+            width: 180px; /* 图片的宽度 */
+            height: auto;
+        }
+        .image29 {
+            /* 调整相对于长图的位置 */
+            top: 5660px;
+            left: 450px;
+            width: 200px; /* 图片的宽度 */
+            height: auto;
+        }
+        .image30 {
+            /* 调整相对于长图的位置 */
+            top: 5990px;
+            left: 710px;
+            width: 160px; /* 图片的宽度 */
+            height: auto;
+        }
+        .image31 {
+            /* 调整相对于长图的位置 */
+            top: 6300px;
+            left: 480px;
+            width: 180px; /* 图片的宽度 */
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <!-- 插入其他文字的容器 -->
+    <div class="text-container">
+        <div class="dropdown">
+              <button class="dropbtn"><a href="/history">丝路纪元</a></button>
+              <div class="dropdown-content">
+                <a href="/history">发展脉络</a>
+                <a href="/api1">趣味答题</a>
+              </div>
+        </div>
+         <div class="dropdown">
+              <button class="dropbtn"><a href="/all">伙伴风采</a></button>
+              <div class="dropdown-content">
+                <a href="/all">时空演化</a>
+                <a href="/photos">联绸盛图</a>
+              </div>
+        </div>
+        <div class="dropdown">
+              <button class="dropbtn"><a href="/eco">数绘经济</a></button>
+              <div class="dropdown-content">
+                <a href="/eco">经济数据</a>
+                <a href="/second">伙伴经济</a>
+              </div>
+        </div>
+        <div class="dropdown">
+              <button class="dropbtn"><a href="/project">工程汇聚</a></button>
+              <div class="dropdown-content">
+                  <a href="/project">项目解析</a>
+                  <a href="/project3D">3D图谱</a>
+                  <a href="/question">智能问答</a>
+              </div>
+        </div>
+
+{#        <a href="/project"><div class="text4">工程汇聚</div></a>#}
+{#        <div>#}
+{#            <div class="drop"><a href="/project" class="aa">首页</a></div>#}
+{#           <div class="drop"><a href="/project3D" class="aa">3D图谱</a></div>#}
+{#            <div class="drop"><a href="/question" class="aa">智能问答</a></div>#}
+{#        </div>#}
+    </div>
+    <img src="/static/img/导航栏.png" alt="New Image" class="new-image">
+
+    <!-- 长图容器 -->
+    <div class="long-image-container">
+
+        <!-- 插入长图 -->
+        <img src="/static/img/final.png" alt="Your Long Image" class="long-image">
+
+        <!-- 插入其他图片的容器 -->
+        <div class="image-container">
+            <!-- 插入其他图片 -->
+            <a href="/zhangqian"><img src="/static/img/a.png" alt="Image 1" class="image1"></a>
+            <a href="/2"><img src="/static/img/2.png" alt="Image 2" class="image2"></a>
+            <a href="/3"> <img src="/static/img/3.png" alt="Image 3" class="image3"></a>
+            <a href="/4"> <img src="/static/img/4.png" alt="Image 4" class="image4"></a>
+            <a href="/5"> <img src="/static/img/5.png" alt="Image 5" class="image5"></a>
+            <a href="/6"><img src="/static/img/6.png" alt="Image 6" class="image6"></a>
+            <a href="/7"><img src="/static/img/7.png" alt="Image 7" class="image7"></a>
+            <a href="/8"><img src="/static/img/8.png" alt="Image 8" class="image8"></a>
+            <a href="/9"><img src="/static/img/9.png" alt="Image 9" class="image9"></a>
+            <a href="/10"><img src="/static/img/10.png" alt="Image 10" class="image10"></a>
+            <a href="/11"><img src="/static/img/11.png" alt="Image 11" class="image11"></a>
+            <a href="/12"><img src="/static/img/12.png" alt="Image 12" class="image12"></a>
+            <a href="/13"><img src="/static/img/13.png" alt="Image 13" class="image13"></a>
+            <a href="/14"><img src="/static/img/14.png" alt="Image 14" class="image14"></a>
+            <a href="/15"><img src="/static/img/15.png" alt="Image 15" class="image15"></a>
+            <a href="/16"><img src="/static/img/16.png" alt="Image 16" class="image16"></a>
+            <a href="/17"><img src="/static/img/17.png" alt="Image 17" class="image17"></a>
+            <a href="/18"><img src="/static/img/18.png" alt="Image 18" class="image18"></a>
+            <a href="/19"><img src="/static/img/19.png" alt="Image 19" class="image19"></a>
+            <a href="/20"><img src="/static/img/20.png" alt="Image 20" class="image20"></a>
+            <a href="/21"><img src="/static/img/21.png" alt="Image 21" class="image21"></a>
+            <a href="/22"><img src="/static/img/22.png" alt="Image 22" class="image22"></a>
+            <a href="/23"><img src="/static/img/23.png" alt="Image 23" class="image23"></a>
+            <a href="/24"><img src="/static/img/24.png" alt="Image 24" class="image24"></a>
+            <a href="/25"><img src="/static/img/25.png" alt="Image 25" class="image25"></a>
+            <a href="/26"><img src="/static/img/26.png" alt="Image 26" class="image26"></a>
+            <a href="/27"><img src="/static/img/27.png" alt="Image 27" class="image27"></a>
+            <a href="/28"><img src="/static/img/28.png" alt="Image 28" class="image28"></a>
+            <a href="/29"><img src="/static/img/29.png" alt="Image 29" class="image29"></a>
+            <a href="/30"><img src="/static/img/31.png" alt="Image 30" class="image30 "></a>
+            <a href="/31"><img src="/static/img/32.png" alt="Image 31" class="image31 "></a>
+    </div>
+    </div>
+</body>
+</html>

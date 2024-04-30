@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>趣味答题</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-image: url('/static/img/bg_image.png');
+            background-size: cover;
+        }
+
+        .board {
+            display: grid;
+            grid-template-columns: repeat(15, 75px);
+            grid-template-rows: repeat(10, 75px);
+            gap: 2px;
+            margin-left: -65px;
+            position: relative;
+            margin-top: 15px;
+            background-color: #f0f0f0;
+            padding: 7px;
+            border: 2px solid #333;
+        }
+
+        .square {
+            display: flex;
+            background-size: cover;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            color: #333;
+            background-color: #fff;
+            transition: transform 0.2s;
+            position: relative;
+        }
+
+        .square:hover {
+            transform: scale(1.5);
+        }
+
+        .text {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 5px;
+            border-radius: 5px;
+            display: none;
+        }
+
+        .square:hover .text {
+            display: block;
+        }
+
+        .square:nth-child(odd) {
+            background-color: #f9f9f9;
+        }
+
+.white-box {
+            background-color: white;
+            width: 290px;
+            height: 300px;
+            position: absolute;
+            padding: 10px;
+            bottom:130px;
+            border: 1px solid black;
+            left:0px;
+            opacity: 0.8;
+            font-size: 20px;
+        }
+        .learn{
+            background-color: white;
+            width: 290px;
+            height: 300px;
+            position: absolute;
+            padding: 10px;
+            top:88px;
+            border: 1px solid black;
+            left:0px;
+            opacity: 0.8;
+            font-size: 20px;
+        }
+        .title {
+            font-size: 25px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+        .data{
+            font-size: 25px;
+            font-weight: bold;
+            margin-bottom: 8px;
+            margin-top: 8px;
+        }
+        #questionContainer{
+            left:79%;
+            position: absolute;
+            background-color: rgb(244, 187, 145);
+            width:370px;
+            height: 785px;
+            bottom: 130px;
+            opacity: 0.6;
+        }
+        h3{
+            text-align: center;
+            color: rgb(239, 90, 90);
+            font-size: 25px;
+            font-weight: bold;
+            margin-bottom: 8px;
+
+        }
+        .correct {
+        background-color: lightgreen;
+    }
+
+    .incorrect {
+        background-color: lightcoral;
+    }
+    #startButton{
+       float: left;
+        position: absolute;
+        height: 60px;
+        width: 180px;
+        font-size: 20px;
+        background-color: burlywood;
+    }
+    .hint{
+
+        position: relative;
+        left:50%;
+    }
+    .nextButton{
+        right: 10%;
+        position: relative;
+    }
+    a {
+    color: black;
+    text-decoration: underline;
+}
+.option {
+    background-color: #f7f5f1;
+    color: #333;
+    font-size: 20px;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.option.correct {
+    background-color: #8bc34a;
+    color: #fff;
+}
+
+.option.incorrect {
+    background-color: #f44336;
+    color: #fff;
+}
+#confirmButton {
+    width: 120px; /* 设置按钮宽度为120像素 */
+    height: 40px; /* 设置按钮高度为40像素 */
+    font-size: 16px; /* 设置按钮文字大小 */
+    background-color: #e7e4e2; /* 设置按钮背景颜色 */
+    color: black; /* 设置按钮文字颜色 */
+    border: none; /* 移除按钮边框 */
+    border-radius: 5px; /* 设置按钮圆角 */
+}
+#question {
+    font-size: 25px;
+}
+
+#nextButton {
+    font-size: 23px;
+    width:100px;
+    height:40px;
+    float: right;
+    margin-top: 20px;
+    text-align: center;
+}
+#end{
+    font-size: 23px;
+    height: 40px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color:#f9f5f5;
+    width: 120px;
+    position: relative;
+    float:left;
+    margin-top: 20px;
+    background-color: #f64f44;
+    border:none;
+}
+#popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            color: #e7e4e2;
+            transform: translate(-50%, -50%);
+            background-color: #ed6402;
+            padding: 70px;
+            border: 2px solid #706f6f;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 25px;
+            opacity: 40;
+        }
+#popup button{
+    width: 90px;
+    height: 40px;
+    font-size: 20px;
+    border-radius: 5px;
+}
+#hint {
+    font-size: 25px;
+    text-align: center;
+}
+
+.items {
+    width: 130px;
+    color: #fff;
+}
+
+.content {
+    display: flex;
+    flex-direction: row;
+}
+
+.items {
+    width: 80px;
+    color: #fff;
+}
+
+.menu{
+    width: 130%;
+    height: 50px;
+    background: rgb(233, 162, 100);
+    line-height:50px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+.menu:hover{
+    overflow: visible;
+    background: rgb(230, 158, 63);
+    color: white;
+    z-index: 999;
+    cursor: pointer;
+}
+.drop{
+    background: rgb(245, 200, 131);
+    text-align: center;
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    overflow: hidden;
+    font-size: larger;
+    color: #ccc;
+}
+.drop:hover{
+    background: rgb(231, 167, 72);
+    cursor: pointer;
+}
+.aa{
+    text-decoration: none;
+    color:#fbf9f9
+}
+a{
+    text-decoration: none;
+}
+#restart{
+
+    height: 60px;
+    width: 180px;
+    background-color: burlywood;
+    right:9%;
+   float: right;
+    font-size: 20px;
+   position: relative;
+}
+    </style>
+</head>
+
+<body>
+    <div class="learn">
+        <section class="content">
+            <div class="items">
+                <div class="menu">
+                    <span>返回</span>
+                    <div>
+                        <div class="drop"><a href="/index" class="aa">首页</a></div>
+                        <div class="drop"><a href="/history" class="aa">丝路纪元</a></div>
+                        <div class="drop"><a href="/all" class="aa">伙伴风采</a></div>
+                        <div class="drop"><a href="/eco" class="aa">数绘经济</a></div>
+                        <div class="drop"><a href="/project" class="aa">工程汇聚</a></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="data" style="text-align: center;color: rgb(239, 90, 90);">科普学习</div>
+        <a href="/eco" >1.查看一带一路贸易经济数据展示面板</a>
+        <br>
+        <a href="https://baike.baidu.com/item/%E4%B8%9D%E7%BB%B8%E4%B9%8B%E8%B7%AF/434?fr=ge_ala">2.查看丝绸之路百度百科</a>
+        <br>
+        <a href="https://www.yidaiyilu.gov.cn/">3.查看中国一带一路国家网</a>
+        <br>
+        <a href="/project">4.查看一带一路关系知识图谱</a>
+    </div>
+
+    <div class="white-box">
+        <div class="title" style="text-align: center;color: rgb(239, 90, 90);">游戏规则</div>
+        1.点击“开始游戏”按钮后，进入答题游戏
+        <br>
+        2.每个问题回答正确记10分，错误得0分
+        <br>
+        3.回答正确时，棋盘格中有15个金蛋随机在棋盘格中出现
+        <br>
+        4.最终分数越高并且获得金蛋数量越多代表对一带一路掌握程度越多
+    </div>
+
+
+<div>
+    <div class="board" id="board"></div>
+    <button id="startButton">开始游戏</button>
+<button id="restart">重新开始</button>
+
+
+</div>
+<div id="questionContainer">
+    <h3>答题面板</h3>
+    <div id="question"></div>
+    <br>
+    <div id="options"></div>
+    <br>
+    <div id="hint"></div>
+    <br>
+    <button id="nextButton" style="display: none;text-align: right;">下一题</button>
+    <button id="end" style="display: none;text-align: center;">结束答题</button>
+    <div id="bg">
+    <div id="popup">
+        <p>您确定结束答题吗？</p>
+        <button id="confirm">确定</button>
+        <button id="cancel">取消</button>
+    </div>
+    </div>
+    <div id="pop"></div>
+</div>
+    <script>
+    function createBoard() {
+    const board = document.getElementById('board');
+    const images = ['../../static/img/a.png', '../../static/img/2.png', '../../static/img/3.png','../../static/img/4.png','../../static/img/5.png','../../static/img/6.png','../../static/img/7.png','../../static/img/8.png','../../static/img/9.png','../../static/img/10.png','../../static/img/11.png',
+    '../../static/img/12.png', '../../static/img/13.png', '../../static/img/14.png','../../static/img/15.png','../../static/img/16.png','../../static/img/18.png','../../static/img/19.png','../../static/img/20.png','../../static/img/21.png','../../static/img/22.png',
+    '../../static/img/23.png', '../../static/img/24.png', '../../static/img/25.png','../../static/img/26.png','../../static/img/27.png','../../static/img/28.png','../../static/img/29.png','../../static/img/30.png','../../static/img/31.png','../../static/img/32.png','../../static/img/b1.png','../../static/img/b2.png','../../static/img/b3.png','../../static/img/b4.png',
+'../../static/img/b5.png','../../static/img/b6.png','../../static/img/b7.png']; // Add more image URLs as needed
+
+    for (let row = 0; row < 10; row++) {
+        for (let col = 0; col < 15; col++) {
+            const square = document.createElement('div');
+            square.classList.add('square');
+                const randomImage = images[Math.floor(Math.random() * images.length)];
+                square.style.backgroundImage = `url(${randomImage})`;
+            board.appendChild(square);
+        }
+    }
+}
+createBoard();
+
+document.getElementById('startButton').addEventListener('click', () => {
+    startGame();
+});
+function startGame() {
+    let score = 0;
+    let currentQuestionIndex = 0;
+    const questions = [
+        {
+            question: '一带一路是我国与其它国家的共建成果，共有多少个成员国？',
+            options: ['151', '85', '45', '100'],
+            answer: '151' // 设置正确答案
+        },
+        {
+            question: '一带一路在过去的进出口总额中，最高的是多少？',
+            options: ['1512', '6436.0', '450', '1800'],
+            answer: '6436.0'
+        },
+        {
+            question: '一带一路成员国中，与我国进出口总额最高的国家是哪个',
+            options: ['俄罗斯', '新加坡', '印度', '蒙古'],
+            answer: '新加坡'
+        },
+        {
+            question: '2022年，投资一带一路的国家有多少个？',
+            options: ['57', '67', '89', '34'],
+            answer: '57'
+        },
+        {
+            question: '2022年，一带一路的成员国投资额是多少',
+            options: ['151.9', '85.3', '177.9', '100.8'],
+            answer: '177.9'
+        },
+        {
+            question: '一带一路，空中航线直线通达的国家有多少个？',
+            options: ['89', '30', '43', '57'],
+            answer: '57'
+        },
+        {
+            question: '2023年11月，一带一路海上丝绸之路运价指数是多少？',
+            options: ['110.66', '85.90', '458.0', '100.3'],
+            answer: '110.66'
+        },
+        {
+            question: '一带一路的最早起源是哪个历史事件',
+            options: ['张骞出使西域', '班超击退匈奴', '习近平提出共建丝绸之路', '第一届博览会开展'],
+            answer: '张骞出使西域'
+        },
+        {
+            question: '2022年一带一路出口额的增长率是多少？',
+            options: ['18.3', '8.5', '4.5', '10.0'],
+            answer: '18.3'
+        },
+        {
+            question: '2023年是一带一路成立的几周年？',
+            options: ['10', '11', '12', '13'],
+            answer: '10'
+        },
+    ];
+
+const questionContainer = document.getElementById('questionContainer');
+const pop = document.getElementById('pop');
+const hint = document.getElementById('hint');
+let hasAnswered = false; // 添加变量来跟踪用户是否已经回答过问题
+
+function startQuestion() {
+    shuffleQuestions();
+    showQuestion(currentQuestionIndex);
+}
+function shuffleQuestions() {
+    questions.sort(() => Math.random() - 0.5); // 随机排序题目数组
+}
+
+function showQuestion(index) {
+    const question = questions[index];
+    const options = question.options;
+
+    const questionDiv = document.getElementById('question');
+    const optionsDiv = document.getElementById('options');
+
+    questionDiv.textContent = question.question;
+    optionsDiv.innerHTML = options.map((option, i) => `<button class="option" data-answer="${option}">选项 ${String.fromCharCode(65 + i)}: ${option}</button><br>`).join('');
+
+    const optionButtons = document.querySelectorAll('.option');
+    optionButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            if (!hasAnswered) {
+                hasAnswered = true;
+                const selectedAnswer = button.getAttribute('data-answer');
+                if (selectedAnswer === question.answer) {
+                    button.classList.add('correct');
+                    hint.textContent = "恭喜您，回答正确！";
+                    hint.style.color = "green";
+                    score += 10;
+                    moveImageOutermost();
+                } else {
+                    button.classList.add('incorrect');
+                    hint.textContent = "回答错误！";
+                    hint.style.color = "red";
+                }
+                disableOptions(optionButtons); // 禁用所有选项按钮
+                document.getElementById('nextButton').style.display = 'block';
+                 document.getElementById('end').style.display = 'block';
+            }
+        });
+    });
+}
+
+function disableOptions(optionButtons) {
+    optionButtons.forEach(button => {
+        button.disabled = true; // 禁用选项按钮
+    });
+}
+
+document.getElementById('nextButton').addEventListener('click', () => {
+    hint.textContent = ''; // 清空提示信息
+    currentQuestionIndex++;
+    hasAnswered = false; // 重置已回答标志
+    if (currentQuestionIndex < questions.length) {
+        showQuestion(currentQuestionIndex);
+        document.getElementById('nextButton').style.display = 'none';
+    } else {
+        endGame(score);
+    }
+});
+
+let currentPosition = { row: 0, col: 0 };
+
+function moveImageOutermost() {
+    const board = document.getElementById('board');
+    const squares = board.getElementsByClassName('square');
+
+    for (let i = 0; i < 16; i++) { // 随机产生十个位置
+        const randomRow = Math.floor(Math.random() * 10); // 随机行数
+        const randomCol = Math.floor(Math.random() * 15); // 随机列数
+        const index = randomRow * 15 + randomCol;
+        squares[index].style.backgroundImage = 'url(../../static/img/17.png)'; // 显示指定图片
+    }
+}
+
+function endGame(finalScore) {
+    const eggCount = 15*finalScore/10; // 计算金蛋的数量
+    const overlay = document.createElement('div');
+    overlay.classList.add('overlay');
+
+    const popup = document.createElement('div');
+    popup.classList.add('popup');
+    popup.innerHTML = `游戏结束！您的最终得分为：${finalScore}<br>获得金蛋的数量是：${eggCount}<br><br><br><button id="confirmButton">确认</button>`;
+    popup.style.justifyContent = 'center';
+    popup.style.alignItems = 'center';
+
+    overlay.appendChild(popup);
+    document.body.appendChild(overlay);
+
+    // 设置白色提示面板的样式
+    overlay.style.position = 'fixed';
+    overlay.style.top = '50%';
+    overlay.style.left = '50%';
+    overlay.style.transform = 'translate(-50%, -50%)';
+    overlay.style.backgroundColor = '#C28E5D';
+    overlay.style.padding = '20px';
+    overlay.style.border = '2px solid white';
+    overlay.style.width = '500px'; // 设置宽度
+    overlay.style.height = '200px'; // 设置高度
+    overlay.style.fontSize = '20px';
+    overlay.style.borderRadius = '10px'; // 设置弯曲弧度
+    // 设置确认按钮点击事件
+    popup.querySelector('#confirmButton').addEventListener('click', () => {
+        overlay.style.display = 'none';
+    overlay.style.width = '100px';
+    overlay.style.height = '40px';
+    overlay.style.fontSize= '20px';
+    });
+}
+document.getElementById('restart').addEventListener('click', () => {
+    resetGame();
+});
+
+function resetGame() {
+    const questionContainer = document.getElementById('questionContainer');
+    const board = document.getElementById('board');
+    board.innerHTML = ''; // 清空棋盘格中的内容
+    createBoard(); // 重新生成随机排列的图片
+    score = 0;
+    currentQuestionIndex = 0;
+    hasAnswered = false;
+    startQuestion();
+
+    // 清除提示信息
+    const hint = document.getElementById('hint');
+    hint.textContent = '';
+
+    // 隐藏“下一题”按钮
+    const nextButton = document.getElementById('nextButton');
+    nextButton.style.display = 'none';
+}
+startQuestion();
+
+}
+document.getElementById('end').addEventListener('click', () => {
+        document.getElementById('popup').style.display = 'block';
+    });
+
+    document.getElementById('confirm').addEventListener('click', () => {
+        window.location.reload(); // 刷新页面
+        document.getElementById('popup').style.display = 'none';
+    });
+
+    document.getElementById('cancel').addEventListener('click', () => {
+        document.getElementById('popup').style.display = 'none';
+    });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>工程项目</title>
+    <link href="/static/css/style.css" rel="stylesheet" />
+    <script src="/static/js/jquery-1.12.4.min.js"></script>
+    <script src="/static/js/script.js"></script>
+    <script src="/static/js/searchScript.js"></script>
+    <script src="/static/js/cytoscape.min.js"></script>
+</head>
+<body>
+   <div class="head">
+            <div class="dropdown">
+              <button class="dropbtn"><a href="/history">丝路纪元</a></button>
+              <div class="dropdown-content">
+                <a href="/history">发展脉络</a>
+                <a href="/api1">趣味答题</a>
+              </div>
+        </div>
+         <div class="dropdown">
+              <button class="dropbtn"><a href="/all">伙伴风采</a></button>
+              <div class="dropdown-content">
+                <a href="/all">时空演化</a>
+                <a href="/photos">联绸盛图</a>
+              </div>
+        </div>
+        <div class="dropdown">
+              <button class="dropbtn"><a href="/eco">数绘经济</a></button>
+              <div class="dropdown-content">
+                <a href="/eco">经济数据</a>
+                <a href="/second">伙伴经济</a>
+              </div>
+        </div>
+        <div class="dropdown">
+              <button class="dropbtn"><a href="/project">工程汇聚</a></button>
+              <div class="dropdown-content">
+                  <a href="/project">项目解析</a>
+                  <a href="/project3D">3D图谱</a>
+                  <a href="/question">智能问答</a>
+              </div>
+        </div>
+    </div>
+   <div class="custom-line"></div> <!-- 添加横线 -->
+   <div class="project_bg">
+            <!-- 对话框 -->
+            <div id="chatBox">
+                <div class="conversation" id="chatHistory" style="height: 690px;overflow-y: auto;"></div>
+                <div class="conversation" style="justify-content: center;display: flex;">
+                    <div class="message" style=""> <!-- 设置相对定位 -->
+                        <textarea id="inputText" rows="4" cols="30" placeholder="请输入问题" style="display: block;margin-bottom: -10px;height: 60px;width: 500px;font-size: 20px;border: none;outline: none;border-radius: 5px;background-color: #ffffff80;color: #090909;align-items:center;"></textarea>
+                        <button id="submitButton" onclick="invokeModel()">提交</button>
+                    </div>
+                </div>
+            </div>
+       <div id="graph" style="margin-left: 10px"></div>
+   </div>
+</body>
+<script>
+     function invokeModel() {
+            var inputText = document.getElementById("inputText").value;
+            var data = { "input": inputText };
+
+            fetch('/invoke_model', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json(), word => word.json())
+            .then(data => {
+                var question = inputText; // 获取问题
+                var answer = data.response; // 获取回答
+                var keyword = data.word; // 获取分词结果
+
+                var chatHistory = document.getElementById("chatHistory");
+                var newQuestion = document.createElement("div");
+                newQuestion.classList.add("message", "right");
+                newQuestion.innerHTML = '<div class="question" style="width: 70%;background-color: #f0f0f0;border-radius: 5px; padding: 5px;">' + question + '</div> <div><img class="avatar" src="../../static/img/chatMe.png" alt="Me" style="margin-left: 5px"></div>';
+                chatHistory.appendChild(newQuestion);
+
+                var newAnswer = document.createElement("div");
+                newAnswer.classList.add("message", "left");
+                newAnswer.innerHTML = '<div><img class="avatar" src="../../static/img/chatAI.png" alt="Me" style="margin-right: 5px"></div> <div class="answer" style="width: 70%;background-color: #e0e0e0;border-radius: 5px; padding: 5px;">' + answer + '</div>';
+                chatHistory.appendChild(newAnswer);
+
+                console.log(answer);
+                console.log(keyword);
+                // 滚动到底部
+                chatHistory.scrollTop = chatHistory.scrollHeight;
+                // 清空输入框内容
+                document.getElementById("inputText").value = "";
+
+                // 调用showSearchKnowledgeGraph方法并传递keyword作为参数
+                if(keyword) {
+                    showSearchKnowledgeGraph(keyword);
+                } else {
+                    console.log("未找到关键词:keyword为空");
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        }
+    </script>
+
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>工程项目</title>
+    <link href="/static/css/style.css" rel="stylesheet" />
+    <script src="/static/js/jquery-1.12.4.min.js"></script>
+    <script src="/static/js/jquery-labelauty.js"></script>
+    <script src="/static/js/script.js"></script>
+    <script src="/static/js/searchScript.js"></script>
+    <script src="/static/js/cytoscape.min.js"></script>
+    <script src="/static/js/three.min.js"></script>
+</head>
+<body>
+   <div class="head">
+            <div class="dropdown">
+              <button class="dropbtn"><a href="/history">丝路纪元</a></button>
+              <div class="dropdown-content">
+                <a href="/history">发展脉络</a>
+                <a href="/api1">趣味答题</a>
+              </div>
+        </div>
+         <div class="dropdown">
+              <button class="dropbtn"><a href="/all">伙伴风采</a></button>
+              <div class="dropdown-content">
+                <a href="/all">时空演化</a>
+                <a href="/photos">联绸盛图</a>
+              </div>
+        </div>
+        <div class="dropdown">
+              <button class="dropbtn"><a href="/eco">数绘经济</a></button>
+              <div class="dropdown-content">
+                <a href="/eco">经济数据</a>
+                <a href="/second">伙伴经济</a>
+              </div>
+        </div>
+        <div class="dropdown">
+              <button class="dropbtn"><a href="/project">工程汇聚</a></button>
+              <div class="dropdown-content">
+                  <a href="/project">项目解析</a>
+                  <a href="/project3D">3D图谱</a>
+                  <a href="/question">智能问答</a>
+              </div>
+        </div>
+    </div>
+   <div class="custom-line"></div> <!-- 添加横线 -->
+   <div class="project_bg">
+       <div id="check">
+           <div class="checkInfo">请选择查看节点类型</div>
+           <div style="display: flex; margin-bottom: 20px;">
+               <div style="margin-right: 10px">
+                   <div><input type="checkbox" value="project" name="checkbox" data-labelauty="项目" style="margin-right: 20px" onclick="toggleRelation('项目')"/></div>
+                   <div><input type="checkbox" value="type" name="checkbox" data-labelauty="类型" onclick="toggleRelation('类型')"/></div>
+                   <div><input type="checkbox" value="scale1" name="checkbox" data-labelauty="规模" onclick="toggleRelation('规模')"/></div>
+               </div>
+               <div style="margin-right: 10px">
+                   <div><input type="checkbox" value="country" name="checkbox" data-labelauty="国家" onclick="toggleRelation('国家')"/></div>
+                   <div><input type="checkbox" value="time" name="checkbox" data-labelauty="时间" onclick="toggleRelation('时间')"/></div>
+                   <div><input type="checkbox" value="event" name="checkbox" data-labelauty="事件" onclick="toggleRelation('事件')"/></div>
+               </div>
+               <div style="margin-right: 10px">
+                   <div><input type="checkbox" value="name" name="checkbox" data-labelauty="名称" onclick="toggleRelation('名称')"/></div>
+                   <div><input type="checkbox" value="start" name="checkbox" data-labelauty="起点" onclick="toggleRelation('起点')"/></div>
+                   <div><input type="checkbox" value="end" name="checkbox" data-labelauty="终点" onclick="toggleRelation('终点')"/></div>
+               </div>
+               <div style="margin-right: 10px">
+                   <div><input type="checkbox" value="company" name="checkbox" data-labelauty="承建公司" onclick="toggleRelation('承建公司')"/></div>
+                   <div><input type="checkbox" value="location" name="checkbox" data-labelauty="地理位置" onclick="toggleRelation('地理位置')"/></div>
+                   <div><input type="checkbox" value="scale2" name="checkbox" data-labelauty="投资金额" onclick="toggleRelation('投资额')"/></div>
+               </div>
+           </div>
+           <input type="text" id="searchInput" placeholder="输入节点名称">
+           <button onclick="showKnowledgeGraphByNode()" class="btn1">搜索节点关系图谱</button>
+           <a href="/project3D"><button class="btn" style="width: 360px; height: 60px; font-size: 25px">查看3D知识图谱</button></a>
+       </div>
+
+       <div id="graph"></div>
+           <!-- 机器人图标 -->
+            <div id="chatIcon">
+                <a href="/question"><img src="../../static/img/AI.png" style="height: 200px; width: 200px; margin-right: -100px"></a>
+            </div>
+            <!-- 对话框 -->
+            <div id="chatBox" style="display: none;">
+                <div class="conversation" id="chatHistory" style="height: 510px;overflow-y: auto;"></div>
+                <div class="conversation" style="justify-content: center;display: flex;">
+                    <div class="message" style=""> <!-- 设置相对定位 -->
+                        <textarea id="inputText" rows="4" cols="30" placeholder="请输入问题" style="display: block;margin-bottom: -10px;height: 60px;width: 500px;font-size: 20px;border: none;outline: none;border-radius: 5px;background-color: #ffffff80;color: #090909;align-items:center;"></textarea>
+                        <button id="submitButton" onclick="invokeModel()">提交</button>
+                    </div>
+                </div>
+            </div>
+       </div>
+   </div>
+</body>
+<script>
+    $(function(){
+        $(':input').labelauty();
+    });
+</script>
+<script>
+     function invokeModel() {
+            var inputText = document.getElementById("inputText").value;
+            var data = { "input": inputText };
+
+            fetch('/invoke_model', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(data => {
+                {#var answer = data.response;#}
+                {#document.getElementById("answer").innerText = answer;#}
+                var question = inputText; // 获取问题
+                var answer = data.response; // 获取回答
+                var chatHistory = document.getElementById("chatHistory");
+                var newQuestion = document.createElement("div");
+                newQuestion.classList.add("message", "right");
+                newQuestion.innerHTML = '<div class="question" style="width: 70%;background-color: #f0f0f0;border-radius: 5px; padding: 5px;">' + question + '</div> <div><img class="avatar" src="/img/chatMe.png" alt="Me" style="margin-left: 5px"></div>';
+                chatHistory.appendChild(newQuestion);
+
+                var newAnswer = document.createElement("div");
+                newAnswer.classList.add("message", "left");
+                newAnswer.innerHTML = '<div><img class="avatar" src="/img/chatAI.png" alt="Me" style="margin-right: 5px"></div> <div class="answer" style="width: 70%;background-color: #e0e0e0;border-radius: 5px; padding: 5px;">' + answer + '</div>';
+                chatHistory.appendChild(newAnswer);
+
+                // 滚动到底部
+                chatHistory.scrollTop = chatHistory.scrollHeight;
+                // 清空输入框内容
+                document.getElementById("inputText").value = "";
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        }
+    </script>
+
+</html>

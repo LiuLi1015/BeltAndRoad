@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Country Information</title>
+    <link rel="stylesheet" href="/static/css/style2.css">
+    <style>
+        body, html {
+            background-color: #a16223;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background-image: url('../../../static/img/1.jpeg'); /* 替换为你的背景图片路径 */
+            background-size: cover; /* 保持背景图片覆盖整个屏幕 */
+            background-position: center; /* 将背景图片居中 */
+        }
+        .text-container {
+            position: absolute;
+            z-index: 3; /* 确保文本在图片上方显示 */
+            top:2px;
+            left: 1100px;
+}
+.custom-line {
+            width: 100%; /* 横线宽度与页面相等 */
+            height: 5px; /* 横线高度 */
+            background-color: #a16223; /* 自定义颜色 */
+            position: absolute; /* 固定在页面底部 */
+            top: 105px; /* 距离页面底部的距离 */
+            left: 0; /* 距离页面左侧的距离 */
+            z-index: 3; /* 确保在最顶层显示 */
+        }
+
+        .new-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 2050px; /* 让图片按照原始尺寸显示 */
+    height: auto; /* 让图片按照原始尺寸显示 */
+    max-width: 100%; /* 设置图片最大宽度为页面宽度 */
+    max-height: 100%; /* 设置图片最大高度为页面高度 */
+    z-index: 2;
+}
+
+
+        table {
+            width: 50%;
+            height: 500px;
+            {#border-collapse: collapse;#}
+            margin-top: 140px;
+            float: right; /* 将表格浮动到右侧 */
+            margin-right: 80px;
+            box-shadow:10px 10px 10px 10px #3C3F42;
+            border-spacing:15px;
+            border-radius: 6%;
+            font-size: 17px;
+        }
+        tr{
+            {#background: linear-gradient(to right, rgb(242, 153, 74), rgb(242, 201, 76));#}
+            {#background: linear-gradient(to right, rgb(255, 183, 94), rgb(237, 143, 3));#}
+            background: linear-gradient(to right, rgba(209, 145, 60, 0.7), rgb(255, 209, 148, 0.6));
+            {#opacity: 0.8;#}
+        }
+        th, td {
+            {#border: 1px solid #ddd;#}
+            padding: 10px;
+            {#text-align: left;#}
+        }
+        th {
+            background-color: #DAA520;
+            border-radius: 20px;
+            box-shadow: -4px 4px 0 hsl(16, 40%, 30%);
+        }
+        td{
+            border-radius: 20px;
+        }
+        .image-container {
+            text-align: center;
+            margin-top: -20px;
+        }
+
+        .image-container .image-wrapper {
+            display: inline-block;
+            text-align: center;
+            margin: 80px;
+
+            margin-right: 10px; /* 设置图片之间的间隙 */
+        }
+
+        .image-container img {
+            margin: 0px;
+        }
+
+        .image-container div {
+            margin-top: 5px;
+        }
+         /* 修改轮播图容器的样式 */
+         #div1 {
+            top: 50px;
+            position: relative;
+            font-family: Arial;
+            font-size: 18px;
+    line-height: 30px;
+    font-weight: bold;
+            border-radius: 10px; /* 设置边框圆角 */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* 添加阴影效果 */
+    outline: dashed 10px rgb(218, 182, 155);
+            border: 5px solid #e9cbad; /* 修改轮播图容器的边框样式 */
+            width: 1900px; /* 设置轮播图容器的宽度 */
+            height: 250px; /* 设置轮播图容器的高度 */
+            margin: 20px auto 20px; /* 这里设置轮播图与边框的距离，修改第一个值即可调整上边距，第二个值即可调整右边距，第三个值即可调整下边距 */
+            overflow: hidden;
+        }
+       
+
+        #div1 ul {
+            position: absolute;
+            left: 0;
+        }
+
+        #div1 ul li {
+            list-style: none;
+            width: 200px;
+            float: left;
+            padding: 30px;
+            height: 160px;
+        }
+
+        #div1 ul li img {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        
+        <tr>
+            <th>首都</th>
+            <td>巴库（Baku）</td>
+        </tr>
+        <tr>
+            <th>GDP</th>
+            <td>78721.06 百万美元（2022年）</td>
+        </tr>
+        <tr>
+            <th>进出口总额</th>
+            <td>277.1亿美元</td>
+        </tr>
+        <tr>
+            <th>语言</th>
+            <td>阿塞拜疆语、俄语</td>
+        </tr>
+        <tr>
+            <th>货币</th>
+            <td>阿塞拜疆马纳特（AzerbaijanManat）</td>
+        </tr>
+        <tr>
+            <th>双边关系</th>
+            <td>1992年同中国建交</td>
+        </tr>
+        <tr>
+            <th>支柱产业</th>
+            <td>油气工业</td>
+        </tr>
+    </table>
+    
+    <div class="custom-line"></div> <!-- 添加横线 -->
+    <div class="text-container">
+        <div class="dropdown">
+              <button class="dropbtn"><a href="/history">丝路纪元</a></button>
+              <div class="dropdown-content">
+                <a href="/history">发展脉络</a>
+                <a href="/api1">趣味答题</a>
+              </div>
+        </div>
+         <div class="dropdown">
+              <button class="dropbtn"><a href="/all">伙伴风采</a></button>
+              <div class="dropdown-content">
+                <a href="/all">时空演化</a>
+                <a href="/photos">联绸盛图</a>
+              </div>
+        </div>
+        <div class="dropdown">
+              <button class="dropbtn"><a href="/eco">数绘经济</a></button>
+              <div class="dropdown-content">
+                <a href="/eco">经济数据</a>
+                <a href="/second">伙伴经济</a>
+              </div>
+        </div>
+        <div class="dropdown">
+              <button class="dropbtn"><a href="/project">工程汇聚</a></button>
+              <div class="dropdown-content">
+                  <a href="/project">项目解析</a>
+                  <a href="/project3D">3D图谱</a>
+                  <a href="/question">智能问答</a>
+              </div>
+        </div>
+    </div>
+    <img src="../../../static/img/导航栏.png" alt="New Image" class="new-image">
+    <img src="../../../static/img/阿塞拜疆/1.jpg" alt="图片描述" class="main-image">
+    <div id="div1">
+        
+        <ul>
+            <li> <img src="../../../static/img/阿塞拜疆/2.jpg" alt="图片描述" class="image1"></li>
+            <li> <img src="../../../static/img/阿塞拜疆/6.jpg" alt="图片描述" class="image4"></li>
+            <li> <img src="../../../static/img/阿塞拜疆/3.jpg" alt="图片描述" class="image3"></li>
+            <li> <img src="../../../static/img/阿塞拜疆/4.jpg" alt="图片描述" class="image2"></li>
+            <li> <img src="../../../static/img/阿塞拜疆/5.jpg" alt="图片描述" class="image4"></li>
+            <div style="clear: none;"></div>
+        </ul>
+    </div>
+    <script type="text/javascript">
+        window.onload=function(){
+            var oDiv=document.getElementById('div1');
+            var oUl=oDiv.getElementsByTagName('ul')[0];
+            var aLi=oUl.getElementsByTagName('li');
+            var aA=document.getElementsByTagName('a');//获取向右向左的箭头
+            var timer=null;
+            var iSpeed=1; // 修改速度，可根据需要调整
+            oUl.innerHTML+=oUl.innerHTML;//定义图片可以循环播放
+            oUl.style.width=aLi.length*aLi[0].offsetWidth+'px';//定义外层ul的宽度，根据图片的个数和每个图片的宽度计算，保证总宽度是可调整的
+    
+            function fnMove(){
+                if(oUl.offsetLeft <= -oUl.offsetWidth/2){
+                    oUl.style.left = '0px'; // 当整个ul滚动到一半之后，立即将其left设置为0，实现无缝连接
+                } else {
+                    oUl.style.left = oUl.offsetLeft - iSpeed + 'px';
+                }
+            }
+            
+            timer=setInterval(fnMove,30);
+            
+            oDiv.onmouseover=function(){
+                clearInterval(timer);
+                //鼠标移动到图片上，清除定时器，停止运动
+            }
+            oDiv.onmouseout=function(){
+                timer=setInterval(fnMove,30);
+                //鼠标移出，重新开启定时器，重新运动
+            }
+        };
+    </script>
+    
+    
+</body>
+</html>
+
